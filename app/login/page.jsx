@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, Lock, Eye, EyeOff, Menu, X } from "lucide-react";
-import { supabase } from "../../lib/supabase"; 
+
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -15,48 +15,7 @@ export default function Login() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const router = useRouter();
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-
-    // if (email === "admin@bytecamp.com" && password === "ByteCampskill2025") {
-    //   localStorage.setItem("isLoggedIn", "true");
-    //   localStorage.setItem("userRole", "admin");
-    //   router.push("/admin-panel");
-    //   setLoading(false);
-    //   return;
-    // }
-if (email === "admin@bytecamp.com" && password === "123456") {
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userRole", "admin");
-      router.push("/admin-panel");
-      setLoading(false);
-      return;
-    }
-    const { data, error } = await supabase
-      .from("users")
-      .select("*")
-      .eq("email", email)
-      .single();
-
-    if (error || !data) {
-      setError("User not found.");
-      setLoading(false);
-      return;
-    }
-
-    if (data.password === password) {
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userRole", "user");
-      router.push("/home_page");
-    } else {
-      setError("Incorrect password.");
-    }
-
-    setLoading(false);
-  };
+  
 
   return (
     <div className="min-h-screen bg-gray-900 text-slate-100 antialiased">
@@ -105,7 +64,7 @@ if (email === "admin@bytecamp.com" && password === "123456") {
             <p className="text-sm text-gray-400 mt-1">Sign in to continue</p>
           </header>
 
-          <form onSubmit={handleLogin} className="space-y-4">
+          <form  className="space-y-4">
 
             {/* Email */}
             <div className="flex items-center gap-3 px-3 py-2 bg-gray-800 rounded-lg border border-gray-700">
@@ -131,7 +90,7 @@ if (email === "admin@bytecamp.com" && password === "123456") {
                 className="w-full bg-transparent outline-none text-gray-100"
                 required
               />
-              <button type="button" onClick={() => setShowPwd(!showPwd)}>
+              <button type="button">
                 {showPwd ? <EyeOff className="w-5 h-5 text-gray-400" /> : <Eye className="w-5 h-5 text-gray-400" />}
               </button>
             </div>
