@@ -1,7 +1,5 @@
 const nextConfig = {
-  output: 'export',
-  images: { unoptimized: true },
-  turbopack: { root: __dirname },
+  reactStrictMode: true,
 };
 
 module.exports = nextConfig;
