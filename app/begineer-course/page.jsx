@@ -7,27 +7,27 @@ import Link from "next/link";
 import Button from "@mui/material/Button";
 import { Menu, X, ChevronDown } from "lucide-react";
 const instructors = [
-  { name: "Mahmudul Hasan", role: "Lecturer", photo: "/mypic.jpg" },
-  { name: "Sayed Anowar", role: "Lecturer", photo: "/sayed.jpg" },
+  { name: "Mahmudul Hasan", role: "Instructor", photo: "/mypic.jpg" },
+
 ];
 
 const courseFor = [
-  "সি / সি++ নতুন যারা ডিএসএ শিখতে চান",
+  "সি++ নতুন এবং যারা  শিখতে চান",
   "প্রতিযোগিতামূলক প্রোগ্রামিংয়ের লক্ষ্যে কাজ করা শিক্ষার্থীরা",
   "যে কেউ সমস্যা সমাধানের শক্তিশালী দক্ষতা চান",
-  "যারা DSA-তে হাত পাকাতে চায় এবং লেটকোড, কোডফোর্সে প্র্যাকটিস করতে চায়",
+ 
 ];
 
 const courseGives = [
-  { icon: "🎥", text: "120+ Pre-recorded videos " },
-  { icon: "❤️", text: "1:1 Mentor support and guidance" },
+  { icon: "🎥", text: "20+ Pre-recorded videos " },
+  //{ icon: "❤️", text: "1:1 Mentor support and guidance" },
   { icon: "📞", text: "Daily Support Sessions" },
-  { icon: "👨‍💻", text: "Mastery from C to C++ and core DSA concepts" },
+  //{ icon: "👨‍💻", text: "Mastery from C to C++ and core DSA concepts" },
   { icon: "📝", text: "Weekly Assignments,Quiz" },
   { icon: "🧩", text: "Weekly Problem Set" },
-  { icon: "🏆", text: "Contests for competitive" },
-  { icon: "💻", text: "Codeforces & CodeChef Upsolving Classes" },
-  { icon: "⭐", text: "Exclusive batch" },
+  //{ icon: "🏆", text: "Contests for competitive" },
+  //{ icon: "💻", text: "Codeforces & CodeChef Upsolving Classes" },
+ // { icon: "⭐", text: "Exclusive batch" },
 ];
 
 export default function CoursePage() {
@@ -130,10 +130,10 @@ const [mobileOpen, setMobileOpen] = useState(false);
         <div className="bg-gray-800 rounded-lg shadow-lg p-8 flex flex-col md:flex-row gap-8">
           
           {/* Left Column */}
-          <div className="flex-1 space-y-4 ">
-            <h1 className="text-4xl md:text-5xl font-bold">Basics of Competitive programming</h1>
+          <div className="flex-2 space-y-4 ">
+            <h1 className="text-4xl md:text-5xl font-bold">C++ for Begineer</h1>
             <p className="text-gray-300 text-lg ">
-              ১ বারই কোর্স কিনুন। C এবং C++ থেকে DSA পর্যন্ত সম্পূর্ণ হাতে-কলমে শেখানো হবে। 
+              সি++ এর হাতেখড়ি 
             </p>
            
 
@@ -144,7 +144,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
                 <span className="text-gray-400 text-sm">(313 Ratings)</span> */}
               </div>
               <div className="text-xl font-bold text-green-500">
-               ৳2,500  
+               ৳00 
                 {/* <span className="text-sm text-purple-400 font-normal">প্রোমো অ্যাপ্লাইড</span> */}
               </div>
             </div>
@@ -153,24 +153,35 @@ const [mobileOpen, setMobileOpen] = useState(false);
             {/* Demo + Batch */}
             <div className="mt-6 flex flex-col sm:flex-row gap-4">
 
-              <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded font-semibold">ব্যাচে ভর্তি হোন</button>
+              <button
+  onClick={() =>
+    window.open(
+      "https://docs.google.com/forms/d/e/1FAIpQLSdbA75NDrSuCFfFVL1cM0kJ-wIVYYNv4ePK_ExFBpjwj3dRpA/viewform?usp=header",
+      "_blank"
+    )
+  }
+  className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded font-semibold"
+>
+  ব্যাচে ভর্তি হোন
+</button>
+
             </div>
 
             {/* Batch Timing Info */}
             <div className="mt-4 text-gray-300">
               <p><strong>ব্যাচ নং:</strong>১</p>  
-              <p><strong>কোর্স চলবে :</strong>৩ মাসের বেশি+</p>
-              <p><strong>ব্যাচ এনরোলমেন্ট শুরু:</strong> N/A</p>
-              <p><strong>ওরিয়েন্টেশন ভিডিও:</strong> N/A</p>
-              <p><strong>ক্লাস শুরু:</strong> N/A</p>
-              <p><strong>সাপোর্ট ক্লাস:</strong> দুই বেলা</p>
+              <p><strong>কোর্স চলবে :</strong>১৫ দিন+</p>
+              <p><strong>ব্যাচ এনরোলমেন্ট শুরু:</strong> ১৯ তারিখ </p>
+              {/* <p><strong>ওরিয়েন্টেশন ভিডিও:</strong> N/A</p> */}
+              <p><strong>ক্লাস শুরু:</strong>২১ তারিখ</p>
+              <p><strong>সাপোর্ট ক্লাস:</strong> এক বেলা</p>
              
             </div>
           </div>
 
           {/* Right Column - Image */}
           <div className="flex-1 flex justify-center items-center">
-            <Image src="/course1.png" alt="C to C++ Course Banner" width={400} height={400} className="rounded-lg shadow-lg" />
+            <Image src="/course.png" alt="C to C++ Course Banner" width={400} height={400} className="rounded-lg shadow-lg" />
           </div>
         </div>
       </section>
@@ -193,7 +204,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
       <section className="max-w-6xl mx-auto px-6 py-12">
         <h2 className="text-3xl font-bold mb-4 text-center">Expert Mentors</h2>
         <p className="text-lg mb-8 text-center text-gray-300">
-          Our experienced instructors will guide you throughout the course with lots of problem solve in Codeforces.
+         Our experienced Bangladesh Olympiad Informatics participant candidates will take classes in this course.
         </p>
         <div className="flex flex-wrap justify-center gap-6">
           {instructors.map((inst) => (
@@ -238,19 +249,16 @@ const [mobileOpen, setMobileOpen] = useState(false);
 
   {/* Semester 1 */}
   <div className="mb-10">
-    <h3 className="text-xl font-semibold text-green-400 mb-4 border-b border-gray-700 pb-2">🎯 Semester 1: Introduce  with C</h3>
+    <h3 className="text-xl font-semibold text-green-400 mb-4 border-b border-gray-700 pb-2">🎯 Course Overview</h3>
     <div className="grid md:grid-cols-2 gap-4">
       {[
-        "Basic programming concepts",
-        "Variables ",
-        "Operators",
+        "C++ Introduction",
+        "C++ Syntax",
+        "Variables,Operators",
         "Data types",
         "Input and Output Statements",
         "Loop (For, While), Nested Loop",
-        "Array,",
         "Conditional Statements (if-else, nested if-else)",
-        "Function, Pointer ",
-        "Recursion",
 
       ].map((topic, idx) => (
         <div key={idx} className="flex items-center gap-2 text-gray-300">
@@ -262,7 +270,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
   </div>
 
   {/* Semester 2 */}
-  <div>
+  {/* <div>
     <h3 className="text-xl font-semibold text-blue-400 mb-4 border-b border-gray-700 pb-2">🚀 Semester 2: C++ FOR DSA & Problem Solving Topics </h3>
     <div className="grid md:grid-cols-2 gap-4">
       {[
@@ -285,31 +293,9 @@ const [mobileOpen, setMobileOpen] = useState(false);
         </div>
       ))}
     </div>
-  </div>
+  </div> */}
 </section>
- {/* Exclusive Batch Info */}
-<section className="max-w-3xl mx-auto mt-12 mb-16 px-6 py-8 bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700 rounded-2xl shadow-lg text-gray-300">
-  <h3 className="text-xl font-bold text-center text-teal-400 mb-4">🚀 ByteCamp Exclusive Batch</h3>
-  
-  <p className="text-sm leading-relaxed text-center">
-    এই কোর্সের জার্নিতে যে পরিমাণ তুমি শিখছ, ঠিক সেই পরিমাণে তোমার অ্যাক্সেস থাকবে।  
-    যারা আরও Advanced Topics নিয়ে এগোতে চায়, তাদের জন্য খুলে যাবে  
-    <span className="text-teal-400 font-semibold"> Exclusive Batch </span> এর বিশেষ যাত্রা! 🌟
-  </p>
 
-  <p className="text-sm leading-relaxed text-center mt-3">
-    <strong>Exclusive Batch</strong> এ ঢুকতে হলে যা করতে হবে:  
-  </p>
-
-  <ul className="list-disc list-inside text-gray-300 mt-2 space-y-2 text-sm px-4">
-    <li>সমস্ত <strong>Assignments</strong> এ <strong>৭৫% বা তার বেশি</strong> মার্কস অর্জন করতে হবে।</li>
-    <li>কোর্স শেষের Exclusive Batch এ ধুকার জন্য আপনাকে <strong>Quiz</strong> এবং <strong>Contest</strong> দুটিতেই <strong>দিতে হবে এবং তাতে ৮৫% বা তার বেশি</strong> মার্কস পেতে হবে।</li>
-  </ul>
-
-  <p className="text-sm text-center mt-4 italic text-gray-400">
-    যারা এই মানদণ্ড পূরণ করবে, শুধু তারা <strong>Exclusive Batch</strong> এ যোগ দিতে পারবে এবং advanced learning journey শুরু করতে পারবে। 💻🔥
-  </p>
-</section>
 
       {/* Who This Course Is For */}
       <section className="max-w-4xl mx-auto px-6 py-12 bg-gray-800 rounded-lg">

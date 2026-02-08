@@ -202,12 +202,12 @@ export default function Home() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 px-6">
           {[
           
-            // {
-            //    title: "MS office with ByteCamp📱",
-            //     desc: "React Native বা Flutter দিয়ে Android এবং iOS অ্যাপ বানানো শিখো।",
-            //      link: "/courses/mobile",
-            //       img: "ByteCamp logo.jpg" 
-            //     },
+            {
+               title: "C++ for Begineer🖥️",
+                desc: "সি++ এর হাতেখড়ি হোক বাইটক্যাম্প এর সাথে, সি++ শিখে নিজের স্কিল তাকে তৈরী করো অন্য লেভেলে ।",
+                 link: "/begineer-course",
+                  img: "ByteCamp logo.jpg" 
+                },
             { title: "Basics of Competitive Programming 🖥️",
                desc: "C প্রোগ্রামিং থেকে শুরু করে C++ এর advanced concepts এবং Data Structures and Algorithms (DSA) শিখুন।",
                 link: "/main-course-details",
