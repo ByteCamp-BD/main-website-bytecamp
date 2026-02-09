@@ -235,7 +235,7 @@ export default function ByteCampPage() {
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: 0.2 }}
     >
-            ByteCamp-এর লক্ষ্য একটাই — শিক্ষার্থীদের প্রোগ্রামিং এবং আধুনিক প্রযুক্তিতে দক্ষ করে তোলা, যাতে তারা প্রকল্প তৈরি ও বাস্তব সমস্যা সমাধান করতে পারে।
+            বাইটক্যাম্প-এর লক্ষ্য একটাই — শিক্ষার্থীদের প্রোগ্রামিং এবং আধুনিক প্রযুক্তিতে দক্ষ করে তোলা, যাতে তারা প্রকল্প তৈরি ও বাস্তব সমস্যা সমাধান করতে পারে।
     </motion.p>
 
     <motion.p
@@ -245,7 +245,7 @@ export default function ByteCampPage() {
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: 0.4 }}
     >
-            আমরা শুধু কোড শেখাই না, আমরা নিশ্চিত করি যে শিক্ষার্থীরা কম খরচে সহজে শিখতে পারে এবং যেকোনো সময় আমাদের expert mentorদের কাছ থেকে guidance পাবে। প্রতিটি শিক্ষার্থীর পাশে আমরা সব সময় থাকি, যেন তারা 1:1 mentorship ও support session-এর মাধ্যমে সফল হতে পারে।
+            আমরা শুধু কোড শেখাই না, আমরা নিশ্চিত করি যে শিক্ষার্থীরা কম খরচে সহজে শিখতে পারে এবং যেকোনো সময় আমাদের এক্সপোর্ট মেন্টর দের কাছ থেকে গাইডেন্স পাবে। প্রতিটি শিক্ষার্থীর পাশে আমরা সব সময় থাকি, যেন তারা ১ঃ১ মেন্টরশীপ ও সাপোর্ট সেশন-এর মাধ্যমে সফল হতে পারে।
     </motion.p>
 
 {/* Banner Image */}
@@ -447,7 +447,7 @@ export default function ByteCampPage() {
       🔍 ByteCamp AI ByCam
     </h2>
     <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-14">
-      ByteCamp এর নিজস্ব AI “ByCam” প্রতিটি ছাত্রের Assignment, Contest, Exam ও সকল  
+      বাইটক্যাম্প এর নিজস্ব AI “ByCam” প্রতিটি ছাত্রের এসাইনমেন্ট , কনটেস্ট , এক্সাম ও সকল  
       সাবমিশন রিয়েল-টাইমে স্ক্যান করে।  
       নকল, Copy-Paste, AI-Generated Content — কোন কিছুই ByCam এর চোখ এড়াতে পারে না।
     </p>
@@ -495,7 +495,7 @@ export default function ByteCampPage() {
         <li>• Profile, XP, Rank — সব মুছে যাবে।</li>
         <li>• Certificate বা Badge — স্থায়ীভাবে বাতিল।</li>
         <li>• All Batch/Contest থেকে Lifetime Block।</li>
-        <li>• ByteCamp কমিউনিটিতে Fraud হিসেবে চিহ্নিত।</li>
+        <li>• বাইটক্যাম্প কমিউনিটিতে Fraud হিসেবে চিহ্নিত।</li>
       </ul>
     </div>
   </motion.div>
@@ -518,7 +518,7 @@ export default function ByteCampPage() {
   >
     <h2 className="text-5xl font-extrabold text-teal-400 mb-4">Meet Our Team</h2>
     <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-      ByteCamp-এর প্রতিটি সদস্য একসাথে কাজ করে তোমাদের শেখার অভিজ্ঞতাকে আরও সমৃদ্ধ করতে।
+      বাইটক্যাম্প এর প্রতিটি সদস্য একসাথে কাজ করে তোমাদের শেখার অভিজ্ঞতাকে আরও সমৃদ্ধ করতে।
     </p>
   </motion.div>
 
