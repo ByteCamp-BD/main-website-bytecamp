@@ -195,7 +195,7 @@ export default function Home() {
         <div className="text-center mb-16">
           <h2 className="text-5xl font-extrabold text-teal-400 mb-4">আমাদের জনপ্রিয় কোর্স সমূহ</h2>
           <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-            ByteCamp-এ শেখার জন্য বিভিন্ন কোর্স আছে যা শিক্ষার্থীকে দক্ষতা বৃদ্ধি এবং প্রফেশনাল লেভেলে নিয়ে যাবে
+            বাইটক্যাম্পে শেখার জন্য বিভিন্ন কোর্স আছে যা শিক্ষার্থীকে দক্ষতা বৃদ্ধি এবং প্রফেশনাল লেভেলে নিয়ে যাবে
           </p>
         </div>
 
@@ -206,7 +206,7 @@ export default function Home() {
                title: "C++ for Begineer🖥️",
                 desc: "সি++ এর হাতেখড়ি হোক বাইটক্যাম্প এর সাথে, সি++ শিখে নিজের স্কিল তাকে তৈরী করো অন্য লেভেলে ।",
                  link: "/begineer-course",
-                  img: "ByteCamp logo.jpg" 
+                  img: "course1.png" 
                 },
             { title: "Basics of Competitive Programming 🖥️",
                desc: "C প্রোগ্রামিং থেকে শুরু করে C++ এর advanced concepts এবং Data Structures and Algorithms (DSA) শিখুন।",
