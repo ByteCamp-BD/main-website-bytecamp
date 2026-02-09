@@ -259,7 +259,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
         "Input and Output Statements",
         "Loop (For, While), Nested Loop",
         "Conditional Statements (if-else, nested if-else)",
-        "Practice problems",
+ 
 
       ].map((topic, idx) => (
         <div key={idx} className="flex items-center gap-2 text-gray-300">
