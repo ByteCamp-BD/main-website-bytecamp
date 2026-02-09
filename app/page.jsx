@@ -206,7 +206,7 @@ export default function Home() {
                title: "C++ for Begineer🖥️",
                 desc: "সি++ এর হাতেখড়ি হোক বাইটক্যাম্প এর সাথে, সি++ শিখে নিজের স্কিল তাকে তৈরী করো অন্য লেভেলে ।",
                  link: "/begineer-course",
-                  img: "course1.png" 
+                  img: "course.png" 
                 },
             { title: "Basics of Competitive Programming 🖥️",
                desc: "C প্রোগ্রামিং থেকে শুরু করে C++ এর advanced concepts এবং Data Structures and Algorithms (DSA) শিখুন।",
