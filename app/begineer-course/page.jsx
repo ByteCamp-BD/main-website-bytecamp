@@ -144,7 +144,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
                 <span className="text-gray-400 text-sm">(313 Ratings)</span> */}
               </div>
               <div className="text-xl font-bold text-green-500">
-               ৳00 
+               ৳ ফ্রি  
                 {/* <span className="text-sm text-purple-400 font-normal">প্রোমো অ্যাপ্লাইড</span> */}
               </div>
             </div>
