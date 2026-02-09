@@ -144,7 +144,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
                 <span className="text-gray-400 text-sm">(313 Ratings)</span> */}
               </div>
               <div className="text-xl font-bold text-green-500">
-               ৳ ফ্রি  
+               ৳00  
                 {/* <span className="text-sm text-purple-400 font-normal">প্রোমো অ্যাপ্লাইড</span> */}
               </div>
             </div>
@@ -259,7 +259,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
         "Input and Output Statements",
         "Loop (For, While), Nested Loop",
         "Conditional Statements (if-else, nested if-else)",
-        "Practice problems"
+        "Practice problems",
 
       ].map((topic, idx) => (
         <div key={idx} className="flex items-center gap-2 text-gray-300">
