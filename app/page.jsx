@@ -11,6 +11,15 @@ export default function Home() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+const [showAlert, setShowAlert] = useState(false);
+const enrollmentStart = new Date("2026-02-14T00:00:00");
+
+const [timeLeft, setTimeLeft] = useState({
+  days: "00",
+  hours: "00",
+  minutes: "00",
+  seconds: "00",
+});
 
   // ✅ Check login persistence
   useEffect(() => {
@@ -26,6 +35,36 @@ export default function Home() {
     setIsLoggedIn(false);
     window.location.href = "/login";
   };
+useEffect(() => {
+  const timer = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = enrollmentStart.getTime() - now;
+
+    if (distance <= 0) {
+      clearInterval(timer);
+      window.location.href = "/enroll"; // enrollment page
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor(
+      (distance % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    setTimeLeft({
+      days: String(days).padStart(2, "0"),
+      hours: String(hours).padStart(2, "0"),
+      minutes: String(minutes).padStart(2, "0"),
+      seconds: String(seconds).padStart(2, "0"),
+    });
+  }, 1000);
+
+  return () => clearInterval(timer);
+}, []);
 
   return (
     <div className="min-h-screen bg-gray-900 text-slate-100 antialiased">
@@ -189,6 +228,61 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
+{/* ENROLLMENT TIMER */}
+<section className="py-20 bg-gray-900 text-white">
+  <div className="max-w-4xl mx-auto px-6 text-center">
+    <h2 className="text-4xl md:text-5xl font-extrabold text-teal-400 mb-4">
+      কোর্স এনরোলমেন্ট শুরু হচ্ছে খুব শীঘ্রই 🚀
+    </h2>
+
+    <p className="text-gray-300 text-lg mb-10">
+      নির্ধারিত সময় শেষ হলে স্বয়ংক্রিয়ভাবে এনরোলমেন্ট পেজ চালু হয়ে যাবে।
+    </p>
+
+    {/* TIMER BOX */}
+   <div className="flex justify-center gap-6 mb-10">
+  {[
+    { label: "দিন", value: timeLeft.days },
+    { label: "ঘন্টা", value: timeLeft.hours },
+    { label: "মিনিট", value: timeLeft.minutes },
+    { label: "সেকেন্ড", value: timeLeft.seconds },
+  ].map((item, i) => (
+    <motion.div
+      key={i}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: i * 0.2 }}
+      className="bg-gray-800 border border-gray-700 rounded-2xl w-24 py-6 shadow-lg"
+    >
+      <p className="text-3xl font-bold text-teal-300">{item.value}</p>
+      <p className="text-gray-400 mt-1">{item.label}</p>
+    </motion.div>
+  ))}
+</div>
+
+
+    {/* ENROLL BUTTON */}
+ <motion.button
+  onClick={() => setShowAlert(true)}
+  whileHover={{ scale: 1.08 }}
+  whileTap={{ scale: 0.95 }}
+  animate={{
+    boxShadow: [
+      "0 0 0px rgba(20,184,166,0.4)",
+      "0 0 25px rgba(20,184,166,0.8)",
+      "0 0 0px rgba(20,184,166,0.4)",
+    ],
+  }}
+  transition={{ duration: 1.8, repeat: Infinity }}
+  className="bg-gradient-to-r from-teal-500 to-emerald-400 text-white px-10 py-4 text-lg font-semibold rounded-2xl"
+>
+  🚀 Enroll Now
+</motion.button>
+
+
+
+  </div>
+</section>
 
       {/* OUR COURSES */}
       <section className="py-24 bg-gray-800 text-white">
@@ -203,7 +297,7 @@ export default function Home() {
           {[
           
             {
-               title: "C++ for Begineer🖥️",
+               title: "সি++ এর হাতেখড়ি 🖥️",
                 desc: "সি++ এর হাতেখড়ি হোক বাইটক্যাম্প এর সাথে, সি++ শিখে নিজের স্কিল তাকে তৈরী করো অন্য লেভেলে ।",
                  link: "/begineer-course",
                   img: "course.png" 
@@ -329,6 +423,57 @@ Class 6 থেকে Class 12 পর্যন্ত শিক্ষার্থ�
 
   </div>
 </section>
+{showAlert && (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60 backdrop-blur-sm"
+  >
+    <motion.div
+      initial={{ scale: 0.8, y: 50 }}
+      animate={{ scale: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="relative bg-white rounded-2xl shadow-2xl max-w-xl w-full mx-4 p-8 text-center"
+    >
+      {/* Close */}
+      <button
+        onClick={() => setShowAlert(false)}
+        className="absolute top-3 right-3 bg-red-500 text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-red-600 transition"
+      >
+        ✕
+      </button>
+
+      <p className="text-gray-800 text-lg leading-relaxed font-medium">
+        আমাদের বাইটক্যাম্প এর <span className="font-bold">সি++ এর হাতেখড়ি </span> ব্যাচ 
+        এনরোলমেন্ট শুরু হবে  
+        <br />
+        <span className="font-semibold text-teal-600">
+          ১৪ ফেব্রুয়ারী, ২০২৬
+        </span>
+        <br />
+        
+        <br />
+        এনরোলমেন্ট শেষ হবে    
+        <br />
+        <span className="font-semibold text-teal-600">
+            ২০ ফেব্রুয়ারী, ২০২৬
+        </span>
+        <br />
+        এর আগে কোনোভাবেই এই ব্যাচে সুযোগ দেওয়া হবে না।
+      </p>
+
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => setShowAlert(false)}
+        className="mt-8 bg-teal-500 text-white px-8 py-3 rounded-xl font-semibold hover:bg-teal-600"
+      >
+        ঠিক আছে
+      </motion.button>
+    </motion.div>
+  </motion.div>
+)}
 
 
       {/* FOOTER */}
