@@ -203,31 +203,76 @@ useEffect(() => {
         </div>
       </nav>
 
-        {/* HERO */}
-      <section className="relative overflow-hidden py-32 text-center bg-gradient-to-r from-gray-800 to-black text-white">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="relative z-10 max-w-6xl mx-auto px-6"
-        >
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-           তোমার ক্যারিয়ার শুরু করতে আমরা তোমার পাশে আছি সব সময় ।
-          </h1>
+      {/* HERO */}
+<section className="relative overflow-hidden py-32 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
+  
+  {/* Background Glow */}
+  <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-purple-600/20 blur-[120px] rounded-full" />
+  <div className="absolute top-20 -right-40 w-[500px] h-[500px] bg-teal-500/20 blur-[120px] rounded-full" />
 
-          {/* Hero Button */}
-          <div className="mt-8 flex justify-center gap-4">
-            <Link href="/main-course-details" passHref>
-              <Button
-                variant="contained"
-                className="bg-purple-600 text-white hover:bg-purple-700 py-3 px-8"
-              >
-                Explore
-              </Button>
-            </Link>
-          </div>
-        </motion.div>
-      </section>
+  <div className="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
+    
+    {/* LEFT CONTENT */}
+    <motion.div
+      initial={{ opacity: 0, x: -60 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1 }}
+    >
+      <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+        তোমার ক্যারিয়ার শুরু করতে  
+        <span className="block text-teal-400 mt-2">
+          আমরা তোমার পাশে আছি সব সময়
+        </span>
+      </h1>
+
+      <p className="text-gray-300 text-lg max-w-xl mb-10">
+   শেখার পাশাপাশি, প্রতিটি শিক্ষার্থীকে দক্ষ করে তোলা যাতে সে ভবিষ্যতের চ্যালেঞ্জ confidently মোকাবেলা করতে পারে।
+      </p>
+
+      <div className="flex gap-4">
+        <Link href="/main-course-details">
+          <Button
+            variant="contained"
+            className="bg-gradient-to-r from-purple-600 to-indigo-600 px-8 py-3 text-lg"
+          >
+            Explore Courses
+          </Button>
+        </Link>
+
+        <Link href="/about">
+          <Button
+            variant="outlined"
+            className="border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-black px-8 py-3 text-lg"
+          >
+            Learn More
+          </Button>
+        </Link>
+      </div>
+    </motion.div>
+
+    {/* RIGHT IMAGE */}
+    <motion.div
+      initial={{ opacity: 0, x: 60 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1 }}
+      className="relative flex justify-center"
+    >
+      {/* Image Glow */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/30 to-teal-400/30 blur-3xl rounded-full" />
+
+      <Image
+        src="/fo.png" 
+        alt="course1.png"
+        width={520}
+        height={520}
+        className="relative rounded-3xl shadow-2xl border border-gray-700"
+        priority
+      />
+    </motion.div>
+
+  </div>
+</section>
+
 {/* ENROLLMENT TIMER */}
 <section className="py-20 bg-gray-900 text-white">
   <div className="max-w-4xl mx-auto px-6 text-center">
