@@ -162,8 +162,8 @@ export default function PrivacyPolicy() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-slate-500">
-          <p>&copy; 2025 ByteCamp. All rights reserved.</p>
-          <p className="mt-2 text-sm">Developed by Mahmudul Hasan</p>
+          <p>&copy; 2026 ByteCamp. All rights reserved.</p>
+        
         </div>
       </div>
     </footer>
@@ -177,7 +177,7 @@ export default function PrivacyPolicy() {
       {/* Privacy Policy Content */}
       <div className="px-6 py-16 md:px-20 max-w-4xl mx-auto space-y-8">
         <h1 className="text-4xl font-bold text-teal-400">Privacy Policy of ByteCamp</h1>
-        <p className="text-gray-400">Effective Date: 4/11/2025</p>
+        
         <p className="text-gray-300 leading-relaxed">
           ByteCamp (“we”, “our”, “us”) আপনার ব্যক্তিগত তথ্যের গোপনীয়তা রক্ষা করতে প্রতিশ্রুতিবদ্ধ। 
           এই Privacy Policy-তে আমরা কীভাবে আপনার তথ্য সংগ্রহ করি, ব্যবহার করি এবং সুরক্ষা করি তা ব্যাখ্যা করা হয়েছে।

@@ -203,7 +203,7 @@ useEffect(() => {
         </div>
       </nav>
 
-      {/* HERO */}
+{/* HERO */}
 <section className="relative overflow-hidden py-32 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
   
   {/* Background Glow */}
@@ -226,27 +226,35 @@ useEffect(() => {
       </h1>
 
       <p className="text-gray-300 text-lg max-w-xl mb-10">
-   শেখার পাশাপাশি, প্রতিটি শিক্ষার্থীকে দক্ষ করে তোলা যাতে সে ভবিষ্যতের চ্যালেঞ্জ confidently মোকাবেলা করতে পারে।
+        শেখার পাশাপাশি, প্রতিটি শিক্ষার্থীকে দক্ষ করে তোলা যাতে সে ভবিষ্যতের চ্যালেঞ্জ confidently মোকাবেলা করতে পারে।
       </p>
 
       <div className="flex gap-4">
-        <Link href="/main-course-details">
-          <Button
-            variant="contained"
-            className="bg-gradient-to-r from-purple-600 to-indigo-600 px-8 py-3 text-lg"
-          >
-            Explore Courses
-          </Button>
-        </Link>
+        {/* Explore Courses Button */}
+        <motion.div
+          whileHover={{ scale: 1.1, y: -3, boxShadow: "0 25px 35px rgba(128, 90, 213, 0.5)" }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <Link href="/begineer-course">
+            <button className="px-8 py-3 text-lg font-semibold rounded-3xl bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 shadow-lg text-white transition-all duration-300 hover:brightness-110 hover:shadow-2xl">
+              Explore Courses
+            </button>
+          </Link>
+        </motion.div>
 
-        <Link href="/about">
-          <Button
-            variant="outlined"
-            className="border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-black px-8 py-3 text-lg"
-          >
-            Learn More
-          </Button>
-        </Link>
+        {/* Learn More Button */}
+        <motion.div
+          whileHover={{ scale: 1.1, y: -3, boxShadow: "0 20px 30px rgba(14, 203, 129, 0.4)" }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <Link href="/about">
+            <button className="px-8 py-3 text-lg font-semibold rounded-3xl border-2 border-teal-400 text-teal-400 bg-white/5 backdrop-blur-sm shadow-md transition-all duration-300 hover:bg-teal-400 hover:text-black hover:shadow-xl">
+              Learn More
+            </button>
+          </Link>
+        </motion.div>
       </div>
     </motion.div>
 
@@ -272,6 +280,8 @@ useEffect(() => {
 
   </div>
 </section>
+
+
 
 {/* ENROLLMENT TIMER */}
 <section className="py-20 bg-gray-900 text-white">
@@ -563,7 +573,7 @@ Class 6 থেকে Class 12 পর্যন্ত শিক্ষার্থ�
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-slate-500">
-            <p>&copy; 2025 ByteCamp. All rights reserved.</p>
+            <p>&copy; 2026 ByteCamp. All rights reserved.</p>
           </div>
         </div>
       </footer>

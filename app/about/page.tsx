@@ -596,7 +596,7 @@ export default function ByteCampPage() {
           </div>
 
           <div className="border-t border-gray-800 pt-8 text-center text-gray-500">
-            <p>&copy; 2025 ByteCamp. All rights reserved.</p>
+            <p>&copy; 2026 ByteCamp. All rights reserved.</p>
           
           </div>
         </div>

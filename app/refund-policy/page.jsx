@@ -163,8 +163,8 @@ export default function RefundPolicy() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-slate-500">
-          <p>&copy; 2025 ByteCamp. All rights reserved.</p>
-          <p className="mt-2 text-sm">Developed by Mahmudul Hasan</p>
+          <p>&copy; 2026 ByteCamp. All rights reserved.</p>
+   
         </div>
       </div>
     </footer>
@@ -187,9 +187,7 @@ export default function RefundPolicy() {
             Refund and Return Policy
           </h1>
 
-          <p className="text-gray-300 text-center mb-10">
-            কার্যকর তারিখ: <span className="text-gray-200">04/11/2025</span>
-          </p>
+         
 
           <div className="space-y-8 text-lg leading-relaxed">
             <p>
