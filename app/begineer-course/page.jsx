@@ -154,12 +154,12 @@ const [mobileOpen, setMobileOpen] = useState(false);
             <div className="mt-6 flex flex-col sm:flex-row gap-4">
 
               <button
-  onClick={() =>
-    window.open(
-      "https://docs.google.com/forms/d/e/1FAIpQLSdbA75NDrSuCFfFVL1cM0kJ-wIVYYNv4ePK_ExFBpjwj3dRpA/viewform?usp=header",
-      "_blank"
-    )
-  }
+  // onClick={() =>
+  //   window.open(
+  //     "https://docs.google.com/forms/d/e/1FAIpQLSdbA75NDrSuCFfFVL1cM0kJ-wIVYYNv4ePK_ExFBpjwj3dRpA/viewform?usp=header",
+  //     "_blank"
+  //   )
+  // }
   className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded font-semibold"
 >
   ব্যাচে ভর্তি হোন

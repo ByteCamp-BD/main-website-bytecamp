@@ -5,9 +5,14 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'ByteCamp ,Learn Coding, Build Skills',
+  title: 'ByteCamp, Learn Coding, Build Skills',
   description: 'Your comprehensive platform for skill development and quality education',
+  icons: {
+    icon: '/ByteCamp logo.jpg',      // primary icon / favicon
+ 
+  },
 };
+
 
 export default function RootLayout({
   children,
