@@ -304,21 +304,38 @@ useEffect(() => {
   <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-purple-600/20 blur-[120px] rounded-full animate-pulse-slow" />
   <div className="absolute top-20 -right-40 w-[500px] h-[500px] bg-teal-500/20 blur-[120px] rounded-full animate-pulse-slow" />
 
-  {/* Floating Programming Language Icons */}
-  {["💻", "🐍", "☕", "🖥️", "🧩"].map((icon, i) => (
-    <motion.div
-      key={i}
-      className={`absolute text-4xl md:text-5xl opacity-20`}
-      style={{
-        top: `${10 + i * 15}%`,
-        left: `${5 + i * 18}%`,
-      }}
-      animate={{ y: [0, -15, 0], rotate: [0, 10, -10, 0] }}
-      transition={{ duration: 6 + i, repeat: Infinity, ease: "easeInOut" }}
-    >
-      {icon}
-    </motion.div>
-  ))}
+  {/* Floating Programming Language Images */}
+{[
+  "/c-.png",
+  "/python.png",
+  "/data.png",
+  "/algo.png",
+  "/js.png",
+  "/atom.png",
+].map((src, i) => (
+  <motion.div
+    key={i}
+    className="absolute opacity-20"
+    style={{
+      top: `${10 + i * 15}%`,
+      left: `${5 + i * 18}%`,
+    }}
+    animate={{ y: [0, -15, 0], rotate: [0, 10, -10, 0] }}
+    transition={{
+      duration: 6 + i,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+  >
+    <Image
+      src={src}
+      alt="programming language"
+      width={60}
+      height={60}
+      className="md:w-[80px] md:h-[80px]"
+    />
+  </motion.div>
+))}
 
   <div className="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
 
@@ -387,21 +404,38 @@ useEffect(() => {
         priority
       />
 
-      {/* Floating icons around the image */}
-      {["🐍", "☕", "💻", "🖥️"].map((icon, i) => (
-        <motion.div
-          key={i}
-          className="absolute text-3xl md:text-4xl opacity-25"
-          style={{
-            top: `${10 + i * 25}%`,
-            left: `${-10 + i * 35}%`,
-          }}
-          animate={{ y: [0, 10, 0], rotate: [0, 15, -15, 0] }}
-          transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut" }}
-        >
-          {icon}
-        </motion.div>
-      ))}
+      
+  {/* Floating Programming Language Images */}
+{[
+  "/c-.png",
+  "/python.png",
+  "/data.png",
+  "/algo.png",
+  "/js.png",
+].map((src, i) => (
+  <motion.div
+    key={i}
+    className="absolute opacity-20"
+    style={{
+      top: `${10 + i * 15}%`,
+      left: `${5 + i * 18}%`,
+    }}
+    animate={{ y: [0, -15, 0], rotate: [0, 10, -10, 0] }}
+    transition={{
+      duration: 6 + i,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+  >
+    <Image
+      src={src}
+      alt="programming language"
+      width={60}
+      height={60}
+      className="md:w-[80px] md:h-[80px]"
+    />
+  </motion.div>
+))}
     </motion.div>
 
   </div>
@@ -412,21 +446,38 @@ useEffect(() => {
 {/* ENROLLMENT TIMER */}
 <section className="relative py-20 bg-gray-900 text-white overflow-hidden">
 
-  {/* Floating Programming Icons */}
-  {["💻", "🐍", "☕", "🖥️", "🧩"].map((icon, i) => (
-    <motion.div
-      key={i}
-      className="absolute text-4xl opacity-20"
-      style={{
-        top: `${10 + i * 20}%`,
-        left: `${5 + i * 18}%`,
-      }}
-      animate={{ y: [0, -15, 0], rotate: [0, 10, -10, 0] }}
-      transition={{ duration: 6 + i, repeat: Infinity, ease: "easeInOut" }}
-    >
-      {icon}
-    </motion.div>
-  ))}
+ 
+  {/* Floating Programming Language Images */}
+{[
+  "/c-.png",
+  "/python.png",
+  "/data.png",
+  "/algo.png",
+  "/js.png",
+].map((src, i) => (
+  <motion.div
+    key={i}
+    className="absolute opacity-20"
+    style={{
+      top: `${10 + i * 15}%`,
+      left: `${5 + i * 18}%`,
+    }}
+    animate={{ y: [0, -15, 0], rotate: [0, 10, -10, 0] }}
+    transition={{
+      duration: 6 + i,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+  >
+    <Image
+      src={src}
+      alt="programming language"
+      width={60}
+      height={60}
+      className="md:w-[80px] md:h-[80px]"
+    />
+  </motion.div>
+))}
 
   <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
 
@@ -519,21 +570,40 @@ useEffect(() => {
       {/* OUR COURSES */}
 <section className="relative py-24 bg-gray-800 text-white overflow-hidden">
 
-  {/* Floating Icons */}
-  {["💻", "🐍", "🖥️", "🧩", "⚡"].map((icon, i) => (
-    <motion.div
-      key={i}
-      className="absolute text-3xl opacity-20"
-      style={{
-        top: `${5 + i * 18}%`,
-        left: `${10 + i * 15}%`,
-      }}
-      animate={{ y: [0, -20, 0], rotate: [0, 10, -10, 0] }}
-      transition={{ duration: 6 + i, repeat: Infinity, ease: "easeInOut" }}
-    >
-      {icon}
-    </motion.div>
-  ))}
+  
+  {/* Floating Programming Language Images */}
+{[
+  "/c-.png",
+  "/python.png",
+  "/data.png",
+  "/algo.png",
+  "/edu.png",
+  "/js.png",
+  "/atom.png",
+].map((src, i) => (
+  <motion.div
+    key={i}
+    className="absolute opacity-20"
+    style={{
+      top: `${10 + i * 15}%`,
+      left: `${5 + i * 18}%`,
+    }}
+    animate={{ y: [0, -15, 0], rotate: [0, 10, -10, 0] }}
+    transition={{
+      duration: 6 + i,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+  >
+    <Image
+      src={src}
+      alt="programming language"
+      width={60}
+      height={60}
+      className="md:w-[80px] md:h-[80px]"
+    />
+  </motion.div>
+))}
 
   <div className="text-center mb-16 relative z-10">
     <h2 className="text-5xl font-extrabold text-teal-400 mb-4 animate-pulse">
@@ -587,21 +657,38 @@ useEffect(() => {
 
 
  <section className="py-20 bg-gray-900 text-white relative overflow-hidden">
-  {/* Background floating icons */}
+ 
+  {/* Floating Programming Language Images */}
+{[
+  "/c-.png",
+  "/python.png",
+  "/data.png",
+  "/algo.png",
+  "/edu.png",
+].map((src, i) => (
   <motion.div
-    className="absolute top-10 left-10 text-5xl opacity-20"
-    animate={{ y: [0, 15, 0], rotate: [0, 15, -15, 0] }}
-    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+    key={i}
+    className="absolute opacity-20"
+    style={{
+      top: `${10 + i * 15}%`,
+      left: `${5 + i * 18}%`,
+    }}
+    animate={{ y: [0, -15, 0], rotate: [0, 10, -10, 0] }}
+    transition={{
+      duration: 6 + i,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
   >
-    🚀
+    <Image
+      src={src}
+      alt="programming language"
+      width={60}
+      height={60}
+      className="md:w-[80px] md:h-[80px]"
+    />
   </motion.div>
-  <motion.div
-    className="absolute top-32 right-10 text-6xl opacity-20"
-    animate={{ y: [0, -20, 0], rotate: [0, -10, 10, 0] }}
-    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-  >
-    🏆
-  </motion.div>
+))}
   <motion.div
     className="absolute bottom-10 left-1/2 -translate-x-1/2 text-5xl opacity-20"
     animate={{ y: [0, 10, 0], rotate: [0, 10, -10, 0] }}
@@ -659,28 +746,38 @@ useEffect(() => {
 <section className="py-24 bg-gray-900 text-white">
  
 <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
-  {/* Floating Emojis / Icons */}
+
+  {/* Floating Programming Language Images */}
+{[
+  "/c-.png",
+  "/python.png",
+  "/data.png",
+  "/algo.png",
+  "/edu.png",
+].map((src, i) => (
   <motion.div
-    className="absolute top-10 left-5 text-4xl"
-    animate={{ y: [0, 20, 0], rotate: [0, 15, -15, 0] }}
-    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+    key={i}
+    className="absolute opacity-20"
+    style={{
+      top: `${10 + i * 15}%`,
+      left: `${5 + i * 18}%`,
+    }}
+    animate={{ y: [0, -15, 0], rotate: [0, 10, -10, 0] }}
+    transition={{
+      duration: 6 + i,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
   >
-    🎯
+    <Image
+      src={src}
+      alt="programming language"
+      width={60}
+      height={60}
+      className="md:w-[80px] md:h-[80px]"
+    />
   </motion.div>
-  <motion.div
-    className="absolute top-32 right-10 text-5xl"
-    animate={{ y: [0, -15, 0], rotate: [0, -15, 15, 0] }}
-    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-  >
-    🏆
-  </motion.div>
-  <motion.div
-    className="absolute bottom-20 left-1/2 text-4xl"
-    animate={{ y: [0, 10, 0], rotate: [0, 10, -10, 0] }}
-    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-  >
-    💡
-  </motion.div>
+))}
 
   {/* Header */}
   <div className="text-center mb-16 relative z-10">
@@ -728,28 +825,38 @@ useEffect(() => {
 
 
  <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
-  {/* Floating Emojis */}
+  
+  {/* Floating Programming Language Images */}
+{[
+  "/c-.png",
+  "/python.png",
+  "/data.png",
+  "/algo.png",
+  "/edu.png",
+].map((src, i) => (
   <motion.div
-    className="absolute top-10 left-5 text-4xl"
-    animate={{ y: [0, 20, 0] }}
-    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+    key={i}
+    className="absolute opacity-20"
+    style={{
+      top: `${10 + i * 15}%`,
+      left: `${5 + i * 18}%`,
+    }}
+    animate={{ y: [0, -15, 0], rotate: [0, 10, -10, 0] }}
+    transition={{
+      duration: 6 + i,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
   >
-    🚀
+    <Image
+      src={src}
+      alt="programming language"
+      width={60}
+      height={60}
+      className="md:w-[80px] md:h-[80px]"
+    />
   </motion.div>
-  <motion.div
-    className="absolute top-32 right-10 text-5xl"
-    animate={{ y: [0, -20, 0], rotate: [0, 15, -15, 0] }}
-    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-  >
-    🎉
-  </motion.div>
-  <motion.div
-    className="absolute bottom-20 left-1/2 text-4xl"
-    animate={{ y: [0, 15, 0] }}
-    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-  >
-    💡
-  </motion.div>
+))}
 
   <div className="text-center mb-16 relative z-10">
     <h2 className="text-5xl font-extrabold text-teal-400 mb-4">
