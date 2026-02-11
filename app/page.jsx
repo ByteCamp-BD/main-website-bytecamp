@@ -248,7 +248,7 @@ useEffect(() => {
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <Link href="/begineer-course">
+          <Link href="/courses">
             <button className="px-8 py-3 text-lg font-semibold rounded-3xl bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 shadow-lg text-white transition-all duration-300 hover:brightness-110 hover:shadow-2xl">
               Explore Courses
             </button>
