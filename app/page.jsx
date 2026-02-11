@@ -14,6 +14,9 @@ export default function Home() {
 const [showAlert, setShowAlert] = useState(false);
 const enrollmentStart = new Date("2026-02-14T00:00:00");
 
+const [expired, setExpired] = useState(false);
+
+
 const [timeLeft, setTimeLeft] = useState({
   days: "00",
   hours: "00",
@@ -36,13 +39,21 @@ const [timeLeft, setTimeLeft] = useState({
     window.location.href = "/login";
   };
 useEffect(() => {
+  // যদি আগেই expired হয়ে থাকে
+  const alreadyExpired = localStorage.getItem("enrollmentExpired");
+  if (alreadyExpired === "true") {
+    setExpired(true);
+    return;
+  }
+
   const timer = setInterval(() => {
     const now = new Date().getTime();
     const distance = enrollmentStart.getTime() - now;
 
     if (distance <= 0) {
       clearInterval(timer);
-      window.location.href = "/enroll"; // enrollment page
+      setExpired(true);
+      localStorage.setItem("enrollmentExpired", "true"); // 🔥 Permanent
       return;
     }
 
@@ -65,6 +76,7 @@ useEffect(() => {
 
   return () => clearInterval(timer);
 }, []);
+
 
   return (
     <div className="min-h-screen bg-gray-900 text-slate-100 antialiased">
@@ -286,58 +298,93 @@ useEffect(() => {
 {/* ENROLLMENT TIMER */}
 <section className="py-20 bg-gray-900 text-white">
   <div className="max-w-4xl mx-auto px-6 text-center">
-    <h2 className="text-4xl md:text-5xl font-extrabold text-teal-400 mb-4">
-      কোর্স এনরোলমেন্ট শুরু হচ্ছে খুব শীঘ্রই 🚀
-    </h2>
 
-    <p className="text-gray-300 text-lg mb-10">
-      নির্ধারিত সময় শেষ হলে স্বয়ংক্রিয়ভাবে এনরোলমেন্ট পেজ চালু হয়ে যাবে।
-    </p>
+    {!expired ? (
+      <>
+        <h2 className="text-4xl md:text-5xl font-extrabold text-teal-400 mb-4">
+          কোর্স এনরোলমেন্ট শুরু হচ্ছে খুব শীঘ্রই 🚀
+        </h2>
 
-    {/* TIMER BOX */}
-   <div className="flex justify-center gap-6 mb-10">
-  {[
-    { label: "দিন", value: timeLeft.days },
-    { label: "ঘন্টা", value: timeLeft.hours },
-    { label: "মিনিট", value: timeLeft.minutes },
-    { label: "সেকেন্ড", value: timeLeft.seconds },
-  ].map((item, i) => (
-    <motion.div
-      key={i}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: i * 0.2 }}
-      className="bg-gray-800 border border-gray-700 rounded-2xl w-24 py-6 shadow-lg"
-    >
-      <p className="text-3xl font-bold text-teal-300">{item.value}</p>
-      <p className="text-gray-400 mt-1">{item.label}</p>
-    </motion.div>
-  ))}
+        <p className="text-gray-300 text-lg mb-10">
+          নির্ধারিত সময় শেষ হলে স্বয়ংক্রিয়ভাবে এনরোলমেন্ট চালু হবে।
+        </p>
+
+        {/* TIMER BOX */}
+        <div className="flex justify-center gap-6 mb-10">
+          {[
+            { label: "দিন", value: timeLeft.days },
+            { label: "ঘন্টা", value: timeLeft.hours },
+            { label: "মিনিট", value: timeLeft.minutes },
+            { label: "সেকেন্ড", value: timeLeft.seconds },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2 }}
+              className="bg-gray-800 border border-gray-700 rounded-2xl w-24 py-6 shadow-lg"
+            >
+              <p className="text-3xl font-bold text-teal-300">
+                {item.value}
+              </p>
+              <p className="text-gray-400 mt-1">{item.label}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="flex justify-center gap-4 flex-wrap">
+  
+  {/* Locked Button */}
+  <motion.button
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-10 py-4 text-lg font-semibold rounded-2xl cursor-not-allowed opacity-70"
+  >
+    🚀 Enrollment Locked
+  </motion.button>
+
+  {/* Alert Button */}
+  <motion.button
+    onClick={() => setShowAlert(true)}
+    whileHover={{ scale: 1.08 }}
+    whileTap={{ scale: 0.95 }}
+    className="bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition"
+  >
+    📅 Enrollment Details
+  </motion.button>
+
 </div>
 
+      </>
+    ) : (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="text-4xl md:text-5xl font-extrabold text-green-400 mb-6 animate-pulse">
+          🎉 Enrollment is Now Live!
+        </h2>
 
-    {/* ENROLL BUTTON */}
- <motion.button
-  onClick={() => setShowAlert(true)}
-  whileHover={{ scale: 1.08 }}
-  whileTap={{ scale: 0.95 }}
-  animate={{
-    boxShadow: [
-      "0 0 0px rgba(20,184,166,0.4)",
-      "0 0 25px rgba(20,184,166,0.8)",
-      "0 0 0px rgba(20,184,166,0.4)",
-    ],
-  }}
-  transition={{ duration: 1.8, repeat: Infinity }}
-  className="bg-gradient-to-r from-teal-500 to-emerald-400 text-white px-10 py-4 text-lg font-semibold rounded-2xl"
->
-  🚀 Enroll Now
-</motion.button>
+        <p className="text-gray-300 text-lg mb-10">
+          এখনই আমাদের সি++ এর হাতেখড়ি কোর্সে এনরোল করুন।
+        </p>
 
-
+        <Link href="/begineer-course">
+          <motion.button
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-12 py-4 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition duration-300"
+          >
+            🚀 Enroll Our C++ for Beginner Course
+          </motion.button>
+        </Link>
+      </motion.div>
+    )}
 
   </div>
 </section>
+
 
       {/* OUR COURSES */}
       <section className="py-24 bg-gray-800 text-white">
