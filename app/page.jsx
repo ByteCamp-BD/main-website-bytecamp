@@ -23,21 +23,6 @@ const [timeLeft, setTimeLeft] = useState({
   minutes: "00",
   seconds: "00",
 });
-
-  // ✅ Check login persistence
-  useEffect(() => {
-    const loggedIn = localStorage.getItem("isLoggedIn");
-    if (loggedIn === "true") {
-      setIsLoggedIn(true);
-    }
-  }, []);
-
-  // ✅ Logout function
-  const handleLogout = () => {
-    localStorage.removeItem("isLoggedIn");
-    setIsLoggedIn(false);
-    window.location.href = "/login";
-  };
 useEffect(() => {
   // যদি আগেই expired হয়ে থাকে
   const alreadyExpired = localStorage.getItem("enrollmentExpired");
@@ -76,6 +61,103 @@ useEffect(() => {
 
   return () => clearInterval(timer);
 }, []);
+  // ✅ Check login persistence
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("isLoggedIn");
+    if (loggedIn === "true") {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  // ✅ Logout function
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    setIsLoggedIn(false);
+    window.location.href = "/login";
+  };
+
+
+  const statsData = [
+    { label: "Students Enrolled", value: 200 },
+    { label: "Courses Available", value: 3 },
+    { label: "Mentors", value: 6 },
+    { label: "Projects Completed", value: 30 },
+  ];
+
+  const [stats, setStats] = useState(statsData.map(() => 0));
+
+  useEffect(() => {
+    const intervals = statsData.map((item, i) =>
+      setInterval(() => {
+        setStats((prev) => {
+          const newVal = [...prev];
+          if (newVal[i] < item.value) {
+            newVal[i] += Math.ceil(item.value / 100); // increment smoothly
+            if (newVal[i] > item.value) newVal[i] = item.value;
+          }
+          return newVal;
+        });
+      }, 30)
+    );
+
+    return () => intervals.forEach(clearInterval);
+  }, []);
+
+  const reviews = [
+    {
+      name: "Aysha siddik Mohona",
+      course: "A little programming",
+      feedback: "ByteCamp এর কোর্সের মাধ্যমে আমি programming শিখেছি এবং confidence পেয়েছি। Mentors খুব supportive!",
+      img: "/hijab.jpg",
+    },
+    {
+      name: "Minhaj Islam",
+      course: "A little programming",
+      feedback: "ByteCamp এর কোর্সের মাধ্যমে আমি programming শিখেছি এবং confidence পেয়েছি। Mentors খুব supportive!",
+      img: "/minhaj.jpg",
+    },
+    {
+      name: "Imtiaj islam maisha",
+      course: "Basics of programming",
+      feedback: "Mentorship এবং personal guidance-এর কারণে আমি real-world skills শিখেছি। ধন্যবাদ ByteCamp!",
+      img: "/hijab.jpg",
+    },
+    {
+      name: "Mehedi islam",
+      course: "Arabic (নাহু ও সরফ)",
+      feedback: "ByteCamp এ শেখার পর আমি আরবিতে ভালো ফলাফল করতে পেরেছি ।",
+      img: "/men.png",
+    },
+     {
+      name: "Rashedul Islam rafi",
+      course: "Arabic (নাহু ও সরফ)",
+      feedback: "ByteCamp এ শেখার পর আমি আরবিতে ভালো ফলাফল করতে পেরেছি ।",
+      img: "/men.png",
+    },
+     {
+      name: "Mim akter",
+      course: "Basics of programming",
+      feedback: "Mentorship এবং personal guidance-এর কারণে আমি real-world skills শিখেছি। ধন্যবাদ ByteCamp!",
+      img: "/hijab.jpg",
+    },
+     {
+      name: "Shahriar islam shuvo",
+      course: "Basics of programming",
+      feedback: "Mentorship এবং personal guidance-এর কারণে আমি real-world skills শিখেছি। ধন্যবাদ ByteCamp!",
+      img: "/men.png",
+    },
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  // Auto-slide every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % reviews.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
 
 
   return (
@@ -217,13 +299,29 @@ useEffect(() => {
 
 {/* HERO */}
 <section className="relative overflow-hidden py-32 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
-  
-  {/* Background Glow */}
-  <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-purple-600/20 blur-[120px] rounded-full" />
-  <div className="absolute top-20 -right-40 w-[500px] h-[500px] bg-teal-500/20 blur-[120px] rounded-full" />
+
+  {/* Background Glow Circles */}
+  <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-purple-600/20 blur-[120px] rounded-full animate-pulse-slow" />
+  <div className="absolute top-20 -right-40 w-[500px] h-[500px] bg-teal-500/20 blur-[120px] rounded-full animate-pulse-slow" />
+
+  {/* Floating Programming Language Icons */}
+  {["💻", "🐍", "☕", "🖥️", "🧩"].map((icon, i) => (
+    <motion.div
+      key={i}
+      className={`absolute text-4xl md:text-5xl opacity-20`}
+      style={{
+        top: `${10 + i * 15}%`,
+        left: `${5 + i * 18}%`,
+      }}
+      animate={{ y: [0, -15, 0], rotate: [0, 10, -10, 0] }}
+      transition={{ duration: 6 + i, repeat: Infinity, ease: "easeInOut" }}
+    >
+      {icon}
+    </motion.div>
+  ))}
 
   <div className="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
-    
+
     {/* LEFT CONTENT */}
     <motion.div
       initial={{ opacity: 0, x: -60 }}
@@ -232,7 +330,7 @@ useEffect(() => {
     >
       <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
         তোমার ক্যারিয়ার শুরু করতে  
-        <span className="block text-teal-400 mt-2">
+        <span className="block text-teal-400 mt-2 animate-pulse-slow">
           আমরা তোমার পাশে আছি সব সময়
         </span>
       </h1>
@@ -278,16 +376,32 @@ useEffect(() => {
       className="relative flex justify-center"
     >
       {/* Image Glow */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/30 to-teal-400/30 blur-3xl rounded-full" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/30 to-teal-400/30 blur-3xl rounded-full animate-pulse-slow" />
 
       <Image
         src="/fo.png" 
         alt="course1.png"
         width={520}
         height={520}
-        className="relative rounded-3xl shadow-2xl border border-gray-700"
+        className="relative rounded-3xl shadow-2xl border border-gray-700 hover:scale-105 transition-transform duration-500"
         priority
       />
+
+      {/* Floating icons around the image */}
+      {["🐍", "☕", "💻", "🖥️"].map((icon, i) => (
+        <motion.div
+          key={i}
+          className="absolute text-3xl md:text-4xl opacity-25"
+          style={{
+            top: `${10 + i * 25}%`,
+            left: `${-10 + i * 35}%`,
+          }}
+          animate={{ y: [0, 10, 0], rotate: [0, 15, -15, 0] }}
+          transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut" }}
+        >
+          {icon}
+        </motion.div>
+      ))}
     </motion.div>
 
   </div>
@@ -296,12 +410,29 @@ useEffect(() => {
 
 
 {/* ENROLLMENT TIMER */}
-<section className="py-20 bg-gray-900 text-white">
-  <div className="max-w-4xl mx-auto px-6 text-center">
+<section className="relative py-20 bg-gray-900 text-white overflow-hidden">
+
+  {/* Floating Programming Icons */}
+  {["💻", "🐍", "☕", "🖥️", "🧩"].map((icon, i) => (
+    <motion.div
+      key={i}
+      className="absolute text-4xl opacity-20"
+      style={{
+        top: `${10 + i * 20}%`,
+        left: `${5 + i * 18}%`,
+      }}
+      animate={{ y: [0, -15, 0], rotate: [0, 10, -10, 0] }}
+      transition={{ duration: 6 + i, repeat: Infinity, ease: "easeInOut" }}
+    >
+      {icon}
+    </motion.div>
+  ))}
+
+  <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
 
     {!expired ? (
       <>
-        <h2 className="text-4xl md:text-5xl font-extrabold text-teal-400 mb-4">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-teal-400 mb-4 animate-pulse">
           কোর্স এনরোলমেন্ট শুরু হচ্ছে খুব শীঘ্রই 🚀
         </h2>
 
@@ -310,8 +441,8 @@ useEffect(() => {
         </p>
 
         {/* TIMER BOX */}
-        <div className="flex justify-center gap-6 mb-10">
-          {[
+        <div className="flex justify-center gap-6 mb-10 flex-wrap">
+          {[ 
             { label: "দিন", value: timeLeft.days },
             { label: "ঘন্টা", value: timeLeft.hours },
             { label: "মিনিট", value: timeLeft.minutes },
@@ -322,38 +453,36 @@ useEffect(() => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.2 }}
-              className="bg-gray-800 border border-gray-700 rounded-2xl w-24 py-6 shadow-lg"
+              className="bg-gray-800/70 border border-gray-700 rounded-2xl w-24 py-6 shadow-xl hover:scale-105 transition-transform duration-300"
             >
-              <p className="text-3xl font-bold text-teal-300">
-                {item.value}
-              </p>
+              <p className="text-3xl font-bold text-teal-300">{item.value}</p>
               <p className="text-gray-400 mt-1">{item.label}</p>
             </motion.div>
           ))}
         </div>
 
         <div className="flex justify-center gap-4 flex-wrap">
-  
-  {/* Locked Button */}
-  <motion.button
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    className="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-10 py-4 text-lg font-semibold rounded-2xl cursor-not-allowed opacity-70"
-  >
-    🚀 Enrollment Locked
-  </motion.button>
 
-  {/* Alert Button */}
-  <motion.button
-    onClick={() => setShowAlert(true)}
-    whileHover={{ scale: 1.08 }}
-    whileTap={{ scale: 0.95 }}
-    className="bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition"
-  >
-    📅 Enrollment Details
-  </motion.button>
+          {/* Locked Button */}
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-10 py-4 text-lg font-semibold rounded-2xl cursor-not-allowed opacity-70 shadow-lg hover:shadow-2xl transition"
+          >
+            🚀 Enrollment Locked
+          </motion.button>
 
-</div>
+          {/* Alert Button */}
+          <motion.button
+            onClick={() => setShowAlert(true)}
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition"
+          >
+            📅 Enrollment Details
+          </motion.button>
+
+        </div>
 
       </>
     ) : (
@@ -386,145 +515,303 @@ useEffect(() => {
 </section>
 
 
+
       {/* OUR COURSES */}
-      <section className="py-24 bg-gray-800 text-white">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-extrabold text-teal-400 mb-4">আমাদের জনপ্রিয় কোর্স সমূহ</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-            বাইটক্যাম্পে শেখার জন্য বিভিন্ন কোর্স আছে যা শিক্ষার্থীকে দক্ষতা বৃদ্ধি এবং প্রফেশনাল লেভেলে নিয়ে যাবে
-          </p>
-        </div>
+<section className="relative py-24 bg-gray-800 text-white overflow-hidden">
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 px-6">
-          {[
-          
-            {
-               title: "সি++ এর হাতেখড়ি 🖥️",
-                desc: "সি++ এর হাতেখড়ি হোক বাইটক্যাম্প এর সাথে, সি++ শিখে নিজের স্কিল তাকে তৈরী করো অন্য লেভেলে ।",
-                 link: "/begineer-course",
-                  img: "course.png" 
-                },
-            { title: "Basics of Competitive Programming 🖥️",
-               desc: "C প্রোগ্রামিং থেকে শুরু করে C++ এর advanced concepts এবং Data Structures and Algorithms (DSA) শিখুন।",
-                link: "/main-course-details",
-                 img: "ByteCamp logo.jpg" },
-          ].map((course, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.5, delay: i * 0.2 }}
-              className="bg-gray-900 rounded-3xl shadow-xl border border-gray-700 overflow-hidden hover:border-teal-400 transition-all"
-            >
-              <div className="h-48 w-full relative">
-                <Image src={course.img} alt={course.title} fill className="object-cover" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-3xl font-bold text-teal-300 mb-3">{course.title}</h3>
-                <p className="text-gray-300 mb-4 text-lg">{course.desc}</p>
-                <Link href={course.link} className="text-teal-400 font-medium hover:underline text-lg">
-                  বিস্তারিত দেখুন &rarr;
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+  {/* Floating Icons */}
+  {["💻", "🐍", "🖥️", "🧩", "⚡"].map((icon, i) => (
+    <motion.div
+      key={i}
+      className="absolute text-3xl opacity-20"
+      style={{
+        top: `${5 + i * 18}%`,
+        left: `${10 + i * 15}%`,
+      }}
+      animate={{ y: [0, -20, 0], rotate: [0, 10, -10, 0] }}
+      transition={{ duration: 6 + i, repeat: Infinity, ease: "easeInOut" }}
+    >
+      {icon}
+    </motion.div>
+  ))}
 
-      {/* BYTECAMP EXCLUSIVE BATCH */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-extrabold text-teal-300 mb-4">ByteCamp Exclusive Batch</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-            এই batch-এ থাকবে প্রফেশনাল guidance, personal mentorship এবং career advancement।
-            এখানে শুধু আমদের CP কোর্স  এর শেরা ছাত্ররা সুজক পাবে |
-          </p>
-        </div>
+  <div className="text-center mb-16 relative z-10">
+    <h2 className="text-5xl font-extrabold text-teal-400 mb-4 animate-pulse">
+      আমাদের জনপ্রিয় কোর্স সমূহ
+    </h2>
+    <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+      বাইটক্যাম্পে শেখার জন্য বিভিন্ন কোর্স আছে যা শিক্ষার্থীকে দক্ষতা বৃদ্ধি এবং প্রফেশনাল লেভেলে নিয়ে যাবে
+    </p>
+  </div>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-4">
-          {[
-            { icon: <Heart className="w-10 h-10 mx-auto text-teal-400 mb-2" />, title: "1:1 Personal Mentorship 🧑‍💻", desc: "Mentors তোমার সাথে সরাসরি যুক্ত থাকবেন, problem solving এবং career guidance-এর জন্য।" },
-            // { icon: <FileText className="w-10 h-10 mx-auto text-teal-400 mb-2" />, title: "CV / Resume Guidance✍🏻", desc: "Professional CV বা Resume তৈরি করা এবং apply করার সম্পূর্ণ নির্দেশিকা।" },
-            { icon: <Rocket className="w-10 h-10 mx-auto text-teal-400 mb-2" />, title: "Problem Solving Challenges🔥", desc: "Mentors বিভিন্ন challenge এবং practice opportunities দিয়ে তোমার problem solving দক্ষতা বাড়াবে।" },
-            { icon: <Trophy className="w-10 h-10 mx-auto text-teal-400 mb-2" />, title: "Job Placement Guidance🧑🏻‍🤝‍🧑🏻", desc: "Job-ready হওয়ার জন্য mentors team তোমাকে career advice এবং interview preparation দেবে।" },
-            { icon: <Award className="w-10 h-10 mx-auto text-teal-400 mb-2" />, title: "Your Award 🏆", desc: "ByteCamp Exclusive Batch এর যাত্রা শেষ হলে আপনাকে আমাদের থেকে Certificate দেওয়া হবে ।" },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.5, delay: i * 0.2 }}
-              className="bg-gray-800/70 backdrop-blur-md p-6 rounded-xl shadow-lg border border-gray-700 hover:border-teal-400 transition-all text-center"
-            >
-              {item.icon}
-              <h3 className="text-xl font-bold text-teal-300 mb-1">{item.title}</h3>
-              <p className="text-gray-300 text-sm">{item.desc}</p>
-            </motion.div>
-          ))}
+  <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 px-6 relative z-10">
+    {[
+      {
+        title: "সি++ এর হাতেখড়ি 🖥️",
+        desc: "সি++ এর হাতেখড়ি হোক বাইটক্যাম্প এর সাথে, সি++ শিখে নিজের স্কিল অন্য লেভেলে উন্নীত করো।",
+        link: "/begineer-course",
+        img: "course.png",
+      },
+      {
+        title: "Basics of Competitive Programming 🖥️",
+        desc: "C প্রোগ্রামিং থেকে শুরু করে C++ এর advanced concepts এবং Data Structures and Algorithms (DSA) শিখুন।",
+        link: "/main-course-details",
+        img: "ByteCamp logo.jpg",
+      },
+    ].map((course, i) => (
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        whileHover={{ scale: 1.07, y: -5 }}
+        transition={{ duration: 0.5, delay: i * 0.2 }}
+        className="bg-gray-900 rounded-3xl shadow-xl border border-gray-700 overflow-hidden hover:border-teal-400 hover:shadow-2xl transition-all cursor-pointer relative"
+      >
+        {/* Card Glow */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 via-teal-400/10 to-pink-500/10 blur-2xl rounded-3xl pointer-events-none" />
+        
+        <div className="h-48 w-full relative">
+          <Image src={course.img} alt={course.title} fill className="object-cover" />
         </div>
-      </section>
+        <div className="p-6 relative z-10">
+          <h3 className="text-3xl font-bold text-teal-300 mb-3">{course.title}</h3>
+          <p className="text-gray-300 mb-4 text-lg">{course.desc}</p>
+          <Link href={course.link} className="text-teal-400 font-medium hover:underline text-lg">
+            বিস্তারিত দেখুন &rarr;
+          </Link>
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</section>
+
+
+ <section className="py-20 bg-gray-900 text-white relative overflow-hidden">
+  {/* Background floating icons */}
+  <motion.div
+    className="absolute top-10 left-10 text-5xl opacity-20"
+    animate={{ y: [0, 15, 0], rotate: [0, 15, -15, 0] }}
+    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+  >
+    🚀
+  </motion.div>
+  <motion.div
+    className="absolute top-32 right-10 text-6xl opacity-20"
+    animate={{ y: [0, -20, 0], rotate: [0, -10, 10, 0] }}
+    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+  >
+    🏆
+  </motion.div>
+  <motion.div
+    className="absolute bottom-10 left-1/2 -translate-x-1/2 text-5xl opacity-20"
+    animate={{ y: [0, 10, 0], rotate: [0, 10, -10, 0] }}
+    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+  >
+    💡
+  </motion.div>
+
+  {/* Header */}
+  <div className="text-center mb-16 relative z-10">
+    <h2 className="text-4xl font-extrabold text-teal-300 mb-4 animate-pulse">
+      ByteCamp Exclusive Batch
+    </h2>
+    <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+      এই batch-এ থাকবে প্রফেশনাল guidance, personal mentorship এবং career advancement।
+      এখানে শুধু আমাদের CP কোর্সের শেরা ছাত্ররা সুযোগ পাবে।
+    </p>
+  </div>
+
+  {/* Cards */}
+  <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-4 relative z-10">
+    {[
+      { icon: "🧑‍💻", title: "1:1 Personal Mentorship", desc: "Mentors তোমার সাথে সরাসরি যুক্ত থাকবেন, problem solving এবং career guidance-এর জন্য।" },
+      { icon: "🔥", title: "Problem Solving Challenges", desc: "Mentors বিভিন্ন challenge এবং practice opportunities দিয়ে তোমার problem solving দক্ষতা বাড়াবে।" },
+      { icon: "🧑🏻‍🤝‍🧑🏻", title: "Job Placement Guidance", desc: "Job-ready হওয়ার জন্য mentors team তোমাকে career advice এবং interview preparation দেবে।" },
+      { icon: "🏆", title: "Your Award", desc: "ByteCamp Exclusive Batch শেষ হলে আপনাকে আমাদের থেকে Certificate দেওয়া হবে।" },
+    ].map((item, i) => (
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, y: 30, rotate: -2 }}
+        whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+        whileHover={{ scale: 1.07, rotate: [0, 3, -3, 0], y: -5 }}
+        transition={{ duration: 0.5, delay: i * 0.2, type: "spring", stiffness: 120 }}
+        className="bg-gradient-to-br from-purple-700/40 via-teal-600/40 to-pink-700/40 backdrop-blur-md p-6 rounded-2xl shadow-2xl border border-gray-700 hover:border-teal-400 text-center relative overflow-hidden"
+      >
+        {/* Icon Bubble */}
+        <motion.div
+          className="text-4xl mb-3"
+          animate={{ y: [0, -8, 0], rotate: [0, 15, -15, 0] }}
+          transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut" }}
+        >
+          {item.icon}
+        </motion.div>
+
+        <h3 className="text-xl font-bold text-teal-300 mb-2">{item.title}</h3>
+        <p className="text-gray-300 text-sm">{item.desc}</p>
+      </motion.div>
+    ))}
+  </div>
+</section>
+
 
 
 
 <section className="py-24 bg-gray-900 text-white">
-   <div className="text-center mb-16">
-          <h2 className="text-5xl font-extrabold text-teal-400 mb-4">প্রতিষ্ঠাতার কিছু কথা
-</h2>
-          
-        </div>
-  <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-    
-    {/* LEFT: Founder Image */}
-    <motion.div
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 1 }}
-      className="flex justify-center"
-    >
-      <Image
-        src="mesbah.jpeg" // founder image path
-        alt="Mahmud - COO-Founder"
-        width={280}
-        height={500}
-        className="rounded-3xl shadow-xl border-4 border-teal-400"
-      />
-    </motion.div>
+ 
+<section className="py-24 bg-gray-900 text-white relative overflow-hidden">
+  {/* Floating Emojis / Icons */}
+  <motion.div
+    className="absolute top-10 left-5 text-4xl"
+    animate={{ y: [0, 20, 0], rotate: [0, 15, -15, 0] }}
+    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+  >
+    🎯
+  </motion.div>
+  <motion.div
+    className="absolute top-32 right-10 text-5xl"
+    animate={{ y: [0, -15, 0], rotate: [0, -15, 15, 0] }}
+    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+  >
+    🏆
+  </motion.div>
+  <motion.div
+    className="absolute bottom-20 left-1/2 text-4xl"
+    animate={{ y: [0, 10, 0], rotate: [0, 10, -10, 0] }}
+    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+  >
+    💡
+  </motion.div>
 
-    {/* RIGHT: Founder Text */}
-    <motion.div
-      initial={{ opacity: 0, x: 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 1 }}
-      className="text-center md:text-left"
-    >
-   
-      <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-   "আসসালামু আলাইকুম ওয়া রহমাতুল্লাহি ওয়া বারাকাতুহু।
+  {/* Header */}
+  <div className="text-center mb-16 relative z-10">
+    <h2 className="text-5xl font-extrabold text-teal-400 mb-4">
+      আমাদের অর্জন
+    </h2>
+    <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+      আমাদের শিক্ষার্থীরা এবং কোর্সের কিছু মূল পরিসংখ্যান:
+    </p>
+  </div>
 
-শিক্ষা মানুষের জীবন গঠনের মূল ভিত্তি—এই বিশ্বাসকে সামনে রেখে বাইটক্যাম্প  শিক্ষার্থীদের একাডেমিক উন্নয়নকে কেন্দ্র করে কাজ করছে।
+  {/* Stats Cards */}
+  <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-12 px-6 relative z-10">
+    {statsData.map((item, i) => (
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        whileHover={{ scale: 1.05, rotate: [0, 2, -2, 0] }}
+        transition={{ duration: 0.5, delay: i * 0.2 }}
+        className="bg-gradient-to-br from-purple-700/50 via-teal-600/50 to-pink-700/50 backdrop-blur-md p-8 rounded-xl shadow-2xl border border-gray-700 hover:border-teal-400 transition-all text-center relative overflow-hidden"
+      >
+        {/* Floating emoji per card */}
+        <motion.div
+          className="absolute top-4 right-4 text-2xl"
+          animate={{ y: [0, -8, 0], rotate: [0, 15, -15, 0] }}
+          transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut" }}
+        >
+          {item.emoji || "⭐"}
+        </motion.div>
 
-Class 6 থেকে Class 12 পর্যন্ত শিক্ষার্থীদের জন্য আমরা স্কুল ও বোর্ডভিত্তিক পাঠ্যসূচি অনুযায়ী সহজ, বোধগম্য ও কার্যকর একাডেমিক সহায়তা প্রদান করি—যাতে তারা আত্মবিশ্বাসের সাথে পড়াশোনা করে ভালো ফল অর্জন করতে পারে।
-
-একাডেমিক পড়াশোনার পাশাপাশি, বাইটক্যাম্প -এ রয়েছে একটি আলাদা Skill Development ক্যাটাগরি, যেখানে শিক্ষার্থীরা ভবিষ্যতের জন্য প্রয়োজনীয় দক্ষতা গড়ে তুলতে পারবে (ইনশাআল্লাহ)।
-
-বাইটক্যাম্প -এর সঙ্গে থাকার জন্য আপনাদের আন্তরিক ধন্যবাদ।
-আমাদের জন্য দোয়া করবেন, যেন আমরা শিক্ষার্থীদের জন্য আরও ভালো কিছু করতে পারি।"
-  </p>
-            <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-
-      </p>
-      <p className="text-gray-100 italic mb-6">
-        –S M Mesbah Uddin Yusuf
-      </p>
-     <p className="text-gray-400 italic mb-5">
-        Founder of ByteCamp
-      </p>
-    </motion.div>
-
+        {/* Animated counter */}
+        <motion.p
+          className="text-5xl font-bold text-teal-300 mb-2"
+          initial={{ count: 0 }}
+          animate={{ count: stats[i] }}
+        >
+          {stats[i]}
+        </motion.p>
+        <p className="text-gray-300 text-lg">{item.label}</p>
+      </motion.div>
+    ))}
   </div>
 </section>
+
+
+ <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
+  {/* Floating Emojis */}
+  <motion.div
+    className="absolute top-10 left-5 text-4xl"
+    animate={{ y: [0, 20, 0] }}
+    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+  >
+    🚀
+  </motion.div>
+  <motion.div
+    className="absolute top-32 right-10 text-5xl"
+    animate={{ y: [0, -20, 0], rotate: [0, 15, -15, 0] }}
+    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+  >
+    🎉
+  </motion.div>
+  <motion.div
+    className="absolute bottom-20 left-1/2 text-4xl"
+    animate={{ y: [0, 15, 0] }}
+    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+  >
+    💡
+  </motion.div>
+
+  <div className="text-center mb-16 relative z-10">
+    <h2 className="text-5xl font-extrabold text-teal-400 mb-4">
+      শিক্ষার্থীদের অভিজ্ঞতা
+    </h2>
+    <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+      আমাদের শিক্ষার্থীরা ByteCamp নিয়ে কী বলছে
+    </p>
+  </div>
+
+  <div className="relative max-w-6xl mx-auto overflow-hidden z-10">
+    <motion.div
+      className="flex gap-6"
+      animate={{ x: `-${index * 33.333}%` }}
+      transition={{ type: "spring", stiffness: 120, damping: 25 }}
+    >
+      {[...reviews, ...reviews].map((review, i) => (
+        <motion.div
+          key={i}
+          whileHover={{ scale: 1.07, rotate: [0, 2, -2, 0] }}
+          className="min-w-[33.333%] bg-gradient-to-br from-purple-700/50 via-teal-600/50 to-pink-700/50 backdrop-blur-md rounded-3xl p-8 shadow-2xl flex flex-col items-center text-center relative overflow-hidden"
+        >
+          {/* Emoji floating on card */}
+          <motion.div
+            className="absolute top-4 right-4 text-2xl"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          >
+            🌟
+          </motion.div>
+          <Image
+            src={review.img}
+            alt={review.name}
+            width={100}
+            height={100}
+            className="rounded-full border-4 border-teal-400 mb-4 z-10"
+          />
+          <h3 className="text-xl font-bold text-teal-300 z-10">{review.name}</h3>
+          <p className="text-gray-400 italic mb-2 z-10">{review.course}</p>
+          <p className="text-gray-100 text-sm z-10">{review.feedback}</p>
+        </motion.div>
+      ))}
+    </motion.div>
+
+    {/* Navigation Dots */}
+    <div className="flex justify-center gap-3 mt-8 z-10 relative">
+      {reviews.map((_, i) => (
+        <button
+          key={i}
+          onClick={() => setIndex(i)}
+          className={`w-4 h-4 rounded-full ${
+            i === index ? "bg-teal-400 animate-pulse" : "bg-gray-600"
+          }`}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+
+</section>
+
 {showAlert && (
   <motion.div
     initial={{ opacity: 0 }}
