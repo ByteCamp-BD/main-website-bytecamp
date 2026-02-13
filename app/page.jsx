@@ -29,23 +29,36 @@ const [timeLeft, setTimeLeft] = useState({
 useEffect(() => {
   const timer = setInterval(() => {
     const now = new Date().getTime();
-    const distance = enrollmentStart.getTime() - now;
 
-    if (distance <= 0) {
+    const startDistance = enrollmentStart.getTime() - now;
+    const endDistance = enrollmentEnd.getTime() - now;
+
+    // Enrollment running
+    if (startDistance <= 0 && endDistance > 0) {
+      setEnrollmentStarted(true);
+    }
+
+    // Enrollment expired
+    if (endDistance <= 0) {
+      setEnrollmentStarted(false);
+      setExpired(true);
       clearInterval(timer);
-      setEnrollmentStarted(true); // enrollment start
-    } else {
+    }
+
+    // Countdown running
+    if (startDistance > 0) {
       setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((distance / (1000 * 60)) % 60),
-        seconds: Math.floor((distance / 1000) % 60),
+        days: Math.floor(startDistance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((startDistance / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((startDistance / (1000 * 60)) % 60),
+        seconds: Math.floor((startDistance / 1000) % 60),
       });
     }
   }, 1000);
 
   return () => clearInterval(timer);
 }, []);
+
 
 
   // ✅ Check login persistence
@@ -541,9 +554,12 @@ useEffect(() => {
     {/* BUTTON AREA */}
     <div className="mt-12 flex justify-center gap-4 flex-wrap">
 
-      <button className="px-10 py-4 rounded-xl bg-gray-700 text-white-300 cursor-not-allowed opacity-70">
-        🔒 Enrollment Locked
-      </button>
+  {!enrollmentStarted && !expired && (
+  <button className="px-10 py-4 rounded-xl bg-gray-700 text-gray-300 cursor-not-allowed opacity-70">
+    🔒 Enrollment Locked
+  </button>
+)}
+
 
       <motion.button
         whileHover={{ scale: 1.08 }}
