@@ -14,50 +14,46 @@ export default function Home() {
 const [showAlert, setShowAlert] = useState(false);
 const enrollmentStart = new Date("2026-02-14T00:00:00");
 const enrollmentEnd = new Date("2026-02-20T23:59:59");
+
 const [enrollmentStarted, setEnrollmentStarted] = useState(false);
-
-
 const [expired, setExpired] = useState(false);
-
-
-const [timeLeft, setTimeLeft] = useState({
+const [endTimeLeft, setEndTimeLeft] = useState({
   days: "00",
   hours: "00",
   minutes: "00",
   seconds: "00",
 });
+
 useEffect(() => {
   const timer = setInterval(() => {
     const now = new Date().getTime();
+    const startTime = enrollmentStart.getTime();
+    const endTime = enrollmentEnd.getTime();
 
-    const startDistance = enrollmentStart.getTime() - now;
-    const endDistance = enrollmentEnd.getTime() - now;
-
-    // Enrollment running
-    if (startDistance <= 0 && endDistance > 0) {
+    if (now >= startTime && now <= endTime) {
       setEnrollmentStarted(true);
-    }
-
-    // Enrollment expired
-    if (endDistance <= 0) {
-      setEnrollmentStarted(false);
-      setExpired(true);
-      clearInterval(timer);
-    }
-
-    // Countdown running
-    if (startDistance > 0) {
-      setTimeLeft({
-        days: Math.floor(startDistance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((startDistance / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((startDistance / (1000 * 60)) % 60),
-        seconds: Math.floor((startDistance / 1000) % 60),
+      setExpired(false);
+      const distance = endTime - now;
+      setEndTimeLeft({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((distance / (1000 * 60)) % 60),
+        seconds: Math.floor((distance / 1000) % 60),
       });
+    } else if (now > endTime) {
+      setExpired(true);
+      setEnrollmentStarted(false);
+    } else {
+      setEnrollmentStarted(false);
+      setExpired(false);
     }
   }, 1000);
 
   return () => clearInterval(timer);
 }, []);
+
+
+
 
 
 
@@ -498,80 +494,67 @@ useEffect(() => {
     </motion.div>
   ))}
 
-  <div className="max-w-5xl mx-auto text-center px-6 relative z-10">
+<div className="max-w-5xl mx-auto text-center px-6 relative z-10">
 
-    {/* Title */}
-    <h2 className="text-4xl md:text-5xl font-extrabold text-teal-400 mb-4 animate-pulse">
-      🚀 Enrollment Starting Soon
-    </h2>
+  {/* When Enrollment is Active */}
+  {enrollmentStarted && !expired && (
+    <>
+      <h2 className="text-4xl md:text-5xl font-extrabold text-teal-400 mb-4 animate-pulse">
+        Enrollment Started
+      </h2>
 
-    <p className="text-gray-400 text-lg mb-12">
-      Countdown শেষ হলে C++ এর হাতেখড়ি কোর্সের enrollment চালু হবে।
-    </p>
+      <p className="text-teal-300 font-medium text-lg mb-8">
+        জিওবনের প্রথম কোড লিখতে চাও? Unlimited support সাথে, হালকা পাতলা জানার জন্য ✨
+      </p>
 
-  {/* TIMER */}
-{!enrollmentStarted && (
-  <div className="flex justify-center gap-6 flex-wrap">
-    {[
-      { label: "দিন", value: timeLeft.days },
-      { label: "ঘন্টা", value: timeLeft.hours },
-      { label: "মিনিট",value: timeLeft.minutes },
-      { label: "সেকেন্ড", value: timeLeft.seconds },
-    ].map((item, i) => (
-      <motion.div
-        key={i}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: i * 0.2 }}
-        className="w-24 py-6 rounded-2xl bg-gray-900/70 border border-gray-800 backdrop-blur-xl shadow-xl"
-      >
-        <p className="text-3xl font-bold text-teal-300">
-          {item.value}
-        </p>
-        <p className="text-gray-500 mt-1">{item.label}</p>
-      </motion.div>
-    ))}
-  </div>
-)}
+      {/* Countdown Timer */}
+      <div className="mt-4 flex justify-center gap-6 flex-wrap mb-8">
+        {[
+          { label: "দিন", value: endTimeLeft.days },
+          { label: "ঘন্টা", value: endTimeLeft.hours },
+          { label: "মিনিট", value: endTimeLeft.minutes },
+          { label: "সেকেন্ড", value: endTimeLeft.seconds },
+        ].map((item, i) => (
+          <div
+            key={i}
+            className="w-24 py-6 rounded-2xl bg-green-900/60 border border-green-700 shadow-xl"
+          >
+            <p className="text-3xl font-bold text-green-300">{item.value}</p>
+            <p className="text-gray-300 mt-1">{item.label}</p>
+          </div>
+        ))}
+      </div>
 
-{/* ✅ ENROLL BUTTON AFTER TIMER */}
-{enrollmentStarted && (
-  <motion.div
-    initial={{ opacity: 0, scale: 0.8 }}
-    animate={{ opacity: 1, scale: 1 }}
-    className="mt-10 flex justify-center"
-  >
-    <Link href="/begineer-course">
-      <button className="px-12 py-5 rounded-xl font-bold text-lg bg-gradient-to-r from-green-400 to-emerald-500 text-black shadow-lg hover:scale-105 transition">
-        🚀 Enroll Now
+      {/* Enroll Now Button */}
+      <Link href="/begineer-course">
+        <button className="px-12 py-5 rounded-xl font-bold text-lg bg-gradient-to-r from-green-400 to-emerald-500 text-white shadow-lg hover:scale-105 transition">
+          🚀 Enroll Now
+        </button>
+      </Link>
+    </>
+  )}
+
+  {/* When Enrollment is Closed */}
+  {expired && (
+    <>
+      <h2 className="text-4xl md:text-5xl font-extrabold text-red-500 mb-4 animate-pulse">
+        Enrollment Closed
+      </h2>
+
+      <p className="text-gray-400 font-medium text-lg mb-8">
+        দুঃখিত, তুমি দেরি করে ফেলেছ। এখন আর সুযোগ নেই।
+      </p>
+
+      {/* Disabled Button */}
+      <button className="px-12 py-5 rounded-xl font-bold text-lg bg-gray-700 text-white-300 shadow-lg cursor-not-allowed">
+        🚫 Enrollment Closed
       </button>
-    </Link>
-  </motion.div>
-)}
+    </>
+  )}
+
+</div>
 
 
-
-    {/* BUTTON AREA */}
-    <div className="mt-12 flex justify-center gap-4 flex-wrap">
-
-  {!enrollmentStarted && !expired && (
-  <button className="px-10 py-4 rounded-xl bg-gray-700 text-gray-300 cursor-not-allowed opacity-70">
-    🔒 Enrollment Locked
-  </button>
-)}
-
-
-      <motion.button
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={() => setShowAlert(true)}
-        className="px-10 py-4 rounded-xl font-semibold bg-gradient-to-r from-teal-500 to-emerald-500 text-white shadow-lg hover:shadow-teal-500/30"
-      >
-        📅 Enrollment Details
-      </motion.button>
-
-    </div>
-  </div>
 </section>
 
 
