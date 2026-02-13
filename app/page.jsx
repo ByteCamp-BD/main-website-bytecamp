@@ -13,6 +13,8 @@ export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 const [showAlert, setShowAlert] = useState(false);
 const enrollmentStart = new Date("2026-02-14T00:00:00");
+const enrollmentEnd = new Date("2026-02-20T23:59:59");
+
 
 const [expired, setExpired] = useState(false);
 
@@ -24,43 +26,56 @@ const [timeLeft, setTimeLeft] = useState({
   seconds: "00",
 });
 useEffect(() => {
-  // যদি আগেই expired হয়ে থাকে
-  const alreadyExpired = localStorage.getItem("enrollmentExpired");
-  if (alreadyExpired === "true") {
-    setExpired(true);
-    return;
-  }
-
   const timer = setInterval(() => {
     const now = new Date().getTime();
-    const distance = enrollmentStart.getTime() - now;
 
-    if (distance <= 0) {
-      clearInterval(timer);
-      setExpired(true);
-      localStorage.setItem("enrollmentExpired", "true"); // 🔥 Permanent
-      return;
+    // 🔵 Before Start
+    if (now < enrollmentStart.getTime()) {
+      const distance = enrollmentStart.getTime() - now;
+
+      updateTime(distance);
+      setExpired(false);
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    const minutes = Math.floor(
-      (distance % (1000 * 60 * 60)) / (1000 * 60)
-    );
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    // 🟢 During Enrollment
+    else if (now >= enrollmentStart.getTime() && now <= enrollmentEnd.getTime()) {
+      const distance = enrollmentEnd.getTime() - now;
 
-    setTimeLeft({
-      days: String(days).padStart(2, "0"),
-      hours: String(hours).padStart(2, "0"),
-      minutes: String(minutes).padStart(2, "0"),
-      seconds: String(seconds).padStart(2, "0"),
-    });
+      updateTime(distance);
+      setExpired(false);
+    }
+
+    // 🔴 After End
+    else {
+      clearInterval(timer);
+      setExpired(true);
+    }
   }, 1000);
 
   return () => clearInterval(timer);
 }, []);
+
+
+// reusable function
+const updateTime = (distance) => {
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(
+    (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  );
+  const minutes = Math.floor(
+    (distance % (1000 * 60 * 60)) / (1000 * 60)
+  );
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  setTimeLeft({
+    days: String(days).padStart(2, "0"),
+    hours: String(hours).padStart(2, "0"),
+    minutes: String(minutes).padStart(2, "0"),
+    seconds: String(seconds).padStart(2, "0"),
+  });
+};
+
+
   // ✅ Check login persistence
   useEffect(() => {
     const loggedIn = localStorage.getItem("isLoggedIn");
@@ -203,6 +218,10 @@ useEffect(() => {
               <span className="text-slate-200 font-medium">এক্সক্লুসিভ ব্যাচ</span>
               <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-teal-400 transition-all group-hover:w-full"></span>
             </Link>
+            <Link href="/events" className="relative group">
+              <span className="text-slate-200 font-medium">বুটক্যাম্প / ইভেন্টস </span>
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-teal-400 transition-all group-hover:w-full"></span>
+            </Link>
           </div>
 
          {/* Actions */}
@@ -273,11 +292,18 @@ useEffect(() => {
           </Link>
 
           <Link
+            href="/events"
+            className="text-white py-2 px-3 rounded hover:bg-white/10"
+            onClick={() => setMobileOpen(false)}
+          >
+            BootCamp/Events
+          </Link>
+          <Link
             href="/exclusive-batch"
             className="text-white py-2 px-3 rounded hover:bg-white/10"
             onClick={() => setMobileOpen(false)}
           >
-            Contact
+            Exclusive Batch
           </Link>
 
           {/* Login Button */}
@@ -442,128 +468,6 @@ useEffect(() => {
 </section>
 
 
-
-{/* ENROLLMENT TIMER */}
-<section className="relative py-20 bg-gray-900 text-white overflow-hidden">
-
- 
-  {/* Floating Programming Language Images */}
-{[
-  "/c-.png",
-  "/python.png",
-  "/data.png",
-  "/algo.png",
-  "/js.png",
-].map((src, i) => (
-  <motion.div
-    key={i}
-    className="absolute opacity-20"
-    style={{
-      top: `${10 + i * 15}%`,
-      left: `${5 + i * 18}%`,
-    }}
-    animate={{ y: [0, -15, 0], rotate: [0, 10, -10, 0] }}
-    transition={{
-      duration: 6 + i,
-      repeat: Infinity,
-      ease: "easeInOut",
-    }}
-  >
-    <Image
-      src={src}
-      alt="programming language"
-      width={60}
-      height={60}
-      className="md:w-[80px] md:h-[80px]"
-    />
-  </motion.div>
-))}
-
-  <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-
-    {!expired ? (
-      <>
-        <h2 className="text-4xl md:text-5xl font-extrabold text-teal-400 mb-4 animate-pulse">
-          কোর্স এনরোলমেন্ট শুরু হচ্ছে খুব শীঘ্রই 🚀
-        </h2>
-
-        <p className="text-gray-300 text-lg mb-10">
-          নির্ধারিত সময় শেষ হলে স্বয়ংক্রিয়ভাবে এনরোলমেন্ট চালু হবে।
-        </p>
-
-        {/* TIMER BOX */}
-        <div className="flex justify-center gap-6 mb-10 flex-wrap">
-          {[ 
-            { label: "দিন", value: timeLeft.days },
-            { label: "ঘন্টা", value: timeLeft.hours },
-            { label: "মিনিট", value: timeLeft.minutes },
-            { label: "সেকেন্ড", value: timeLeft.seconds },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2 }}
-              className="bg-gray-800/70 border border-gray-700 rounded-2xl w-24 py-6 shadow-xl hover:scale-105 transition-transform duration-300"
-            >
-              <p className="text-3xl font-bold text-teal-300">{item.value}</p>
-              <p className="text-gray-400 mt-1">{item.label}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="flex justify-center gap-4 flex-wrap">
-
-          {/* Locked Button */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-10 py-4 text-lg font-semibold rounded-2xl cursor-not-allowed opacity-70 shadow-lg hover:shadow-2xl transition"
-          >
-            🚀 Enrollment Locked
-          </motion.button>
-
-          {/* Alert Button */}
-          <motion.button
-            onClick={() => setShowAlert(true)}
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition"
-          >
-            📅 Enrollment Details
-          </motion.button>
-
-        </div>
-
-      </>
-    ) : (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="text-4xl md:text-5xl font-extrabold text-green-400 mb-6 animate-pulse">
-          🎉 Enrollment is Now Live!
-        </h2>
-
-        <p className="text-gray-300 text-lg mb-10">
-          এখনই আমাদের সি++ এর হাতেখড়ি কোর্সে এনরোল করুন।
-        </p>
-
-        <Link href="/begineer-course">
-          <motion.button
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-12 py-4 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition duration-300"
-          >
-            🚀 Enroll Our C++ for Beginner Course
-          </motion.button>
-        </Link>
-      </motion.div>
-    )}
-
-  </div>
-</section>
 
 
 
