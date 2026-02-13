@@ -14,6 +14,7 @@ export default function Home() {
 const [showAlert, setShowAlert] = useState(false);
 const enrollmentStart = new Date("2026-02-14T00:00:00");
 const enrollmentEnd = new Date("2026-02-20T23:59:59");
+const [enrollmentStarted, setEnrollmentStarted] = useState(false);
 
 
 const [expired, setExpired] = useState(false);
@@ -28,52 +29,23 @@ const [timeLeft, setTimeLeft] = useState({
 useEffect(() => {
   const timer = setInterval(() => {
     const now = new Date().getTime();
+    const distance = enrollmentStart.getTime() - now;
 
-    // 🔵 Before Start
-    if (now < enrollmentStart.getTime()) {
-      const distance = enrollmentStart.getTime() - now;
-
-      updateTime(distance);
-      setExpired(false);
-    }
-
-    // 🟢 During Enrollment
-    else if (now >= enrollmentStart.getTime() && now <= enrollmentEnd.getTime()) {
-      const distance = enrollmentEnd.getTime() - now;
-
-      updateTime(distance);
-      setExpired(false);
-    }
-
-    // 🔴 After End
-    else {
+    if (distance <= 0) {
       clearInterval(timer);
-      setExpired(true);
+      setEnrollmentStarted(true); // enrollment start
+    } else {
+      setTimeLeft({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((distance / (1000 * 60)) % 60),
+        seconds: Math.floor((distance / 1000) % 60),
+      });
     }
   }, 1000);
 
   return () => clearInterval(timer);
 }, []);
-
-
-// reusable function
-const updateTime = (distance) => {
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor(
-    (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  );
-  const minutes = Math.floor(
-    (distance % (1000 * 60 * 60)) / (1000 * 60)
-  );
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  setTimeLeft({
-    days: String(days).padStart(2, "0"),
-    hours: String(hours).padStart(2, "0"),
-    minutes: String(minutes).padStart(2, "0"),
-    seconds: String(seconds).padStart(2, "0"),
-  });
-};
 
 
   // ✅ Check login persistence
@@ -524,33 +496,52 @@ const updateTime = (distance) => {
       Countdown শেষ হলে C++ এর হাতেখড়ি কোর্সের enrollment চালু হবে।
     </p>
 
-    {/* TIMER BOX */}
-    <div className="flex justify-center gap-6 flex-wrap">
-      {[
-        { label: "দিন", value: timeLeft.days },
-        { label: "ঘন্টা", value: timeLeft.hours },
-        { label: "মিনিট", value: timeLeft.minutes },
-        { label: "সেকেন্ড", value: timeLeft.seconds },
-      ].map((item, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: i * 0.2 }}
-          className="w-24 py-6 rounded-2xl bg-gray-900/70 border border-gray-800 backdrop-blur-xl shadow-xl hover:scale-105 transition"
-        >
-          <p className="text-3xl font-bold text-teal-300">
-            {item.value}
-          </p>
-          <p className="text-gray-500 mt-1">{item.label}</p>
-        </motion.div>
-      ))}
-    </div>
+  {/* TIMER */}
+{!enrollmentStarted && (
+  <div className="flex justify-center gap-6 flex-wrap">
+    {[
+      { label: "দিন", value: timeLeft.days },
+      { label: "ঘন্টা", value: timeLeft.hours },
+      { label: "মিনিট",value: timeLeft.minutes },
+      { label: "সেকেন্ড", value: timeLeft.seconds },
+    ].map((item, i) => (
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: i * 0.2 }}
+        className="w-24 py-6 rounded-2xl bg-gray-900/70 border border-gray-800 backdrop-blur-xl shadow-xl"
+      >
+        <p className="text-3xl font-bold text-teal-300">
+          {item.value}
+        </p>
+        <p className="text-gray-500 mt-1">{item.label}</p>
+      </motion.div>
+    ))}
+  </div>
+)}
+
+{/* ✅ ENROLL BUTTON AFTER TIMER */}
+{enrollmentStarted && (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.8 }}
+    animate={{ opacity: 1, scale: 1 }}
+    className="mt-10 flex justify-center"
+  >
+    <Link href="/begineer-course">
+      <button className="px-12 py-5 rounded-xl font-bold text-lg bg-gradient-to-r from-green-400 to-emerald-500 text-black shadow-lg hover:scale-105 transition">
+        🚀 Enroll Now
+      </button>
+    </Link>
+  </motion.div>
+)}
+
+
 
     {/* BUTTON AREA */}
     <div className="mt-12 flex justify-center gap-4 flex-wrap">
 
-      <button className="px-10 py-4 rounded-xl bg-gray-700 text-gray-300 cursor-not-allowed opacity-70">
+      <button className="px-10 py-4 rounded-xl bg-gray-700 text-white-300 cursor-not-allowed opacity-70">
         🔒 Enrollment Locked
       </button>
 
@@ -558,7 +549,7 @@ const updateTime = (distance) => {
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setShowAlert(true)}
-        className="px-10 py-4 rounded-xl font-semibold bg-gradient-to-r from-teal-500 to-emerald-500 text-black shadow-lg hover:shadow-teal-500/30"
+        className="px-10 py-4 rounded-xl font-semibold bg-gradient-to-r from-teal-500 to-emerald-500 text-white shadow-lg hover:shadow-teal-500/30"
       >
         📅 Enrollment Details
       </motion.button>
