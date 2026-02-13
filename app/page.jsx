@@ -539,7 +539,7 @@ useEffect(() => {
   {expired && (
     <>
       <h2 className="text-4xl md:text-5xl font-extrabold text-red-500 mb-4 animate-pulse">
-        Enrollment Closed
+        Enrollment Closed 🔒
       </h2>
 
       <p className="text-gray-400 font-medium text-lg mb-8">
