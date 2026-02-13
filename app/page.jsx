@@ -500,7 +500,7 @@ useEffect(() => {
   {enrollmentStarted && !expired && (
     <>
       <h2 className="text-4xl md:text-5xl font-extrabold text-teal-400 mb-4 animate-pulse">
-        Enrollment Started
+        Enrollment Started 🚀
       </h2>
 
       <p className="text-teal-300 font-medium text-lg mb-8">
