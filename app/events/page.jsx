@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Users, Award, Heart, BookOpen, GraduationCap, Rocket, Trophy,CalendarDays ,Clock , ChevronDown, Menu, X } from "lucide-react";
+import { Users, Award, Heart, BookOpen  ,GraduationCap, Rocket, Trophy,CalendarDays ,Clock , ChevronDown, Menu, X } from "lucide-react";
 import Button from "@mui/material/Button";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -176,7 +176,7 @@ return (
 
           {/* Time */}
           <div className="flex items-center gap-2 text-gray-400 mb-6">
-            <Clock size={18} />
+            <CalendarDays size={18} />
             <span>19 February</span>
           </div>
 

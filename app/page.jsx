@@ -469,6 +469,104 @@ const updateTime = (distance) => {
 
 
 
+{/* ================= ENROLLMENT TIMER ================= */}
+<section className="relative py-24 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
+
+  {/* Background Glow */}
+  <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-teal-500/20 blur-[120px] rounded-full" />
+  <div className="absolute bottom-0 -right-32 w-[400px] h-[400px] bg-emerald-500/20 blur-[120px] rounded-full" />
+
+  {/* 🔥 Floating Programming Images */}
+  {[
+    "/c-.png",
+    "/python.png",
+    "/data.png",
+    "/algo.png",
+    "/edu.png",
+    "/js.png",
+    "/atom.png",
+  ].map((src, i) => (
+    <motion.div
+      key={i}
+      className="absolute opacity-20 pointer-events-none"
+      style={{
+        top: `${8 + i * 12}%`,
+        left: `${5 + (i % 4) * 22}%`,
+      }}
+      animate={{
+        y: [0, -20, 0],
+        rotate: [0, 10, -10, 0],
+      }}
+      transition={{
+        duration: 6 + i,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+    >
+      <Image
+        src={src}
+        alt="floating tech"
+        width={70}
+        height={70}
+        className="md:w-[90px] md:h-[90px]"
+      />
+    </motion.div>
+  ))}
+
+  <div className="max-w-5xl mx-auto text-center px-6 relative z-10">
+
+    {/* Title */}
+    <h2 className="text-4xl md:text-5xl font-extrabold text-teal-400 mb-4 animate-pulse">
+      🚀 Enrollment Starting Soon
+    </h2>
+
+    <p className="text-gray-400 text-lg mb-12">
+      Countdown শেষ হলে C++ এর হাতেখড়ি কোর্সের enrollment চালু হবে।
+    </p>
+
+    {/* TIMER BOX */}
+    <div className="flex justify-center gap-6 flex-wrap">
+      {[
+        { label: "দিন", value: timeLeft.days },
+        { label: "ঘন্টা", value: timeLeft.hours },
+        { label: "মিনিট", value: timeLeft.minutes },
+        { label: "সেকেন্ড", value: timeLeft.seconds },
+      ].map((item, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: i * 0.2 }}
+          className="w-24 py-6 rounded-2xl bg-gray-900/70 border border-gray-800 backdrop-blur-xl shadow-xl hover:scale-105 transition"
+        >
+          <p className="text-3xl font-bold text-teal-300">
+            {item.value}
+          </p>
+          <p className="text-gray-500 mt-1">{item.label}</p>
+        </motion.div>
+      ))}
+    </div>
+
+    {/* BUTTON AREA */}
+    <div className="mt-12 flex justify-center gap-4 flex-wrap">
+
+      <button className="px-10 py-4 rounded-xl bg-gray-700 text-gray-300 cursor-not-allowed opacity-70">
+        🔒 Enrollment Locked
+      </button>
+
+      <motion.button
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => setShowAlert(true)}
+        className="px-10 py-4 rounded-xl font-semibold bg-gradient-to-r from-teal-500 to-emerald-500 text-black shadow-lg hover:shadow-teal-500/30"
+      >
+        📅 Enrollment Details
+      </motion.button>
+
+    </div>
+  </div>
+</section>
+
 
 
       {/* OUR COURSES */}
