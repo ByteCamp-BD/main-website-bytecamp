@@ -179,7 +179,7 @@ export default function PrivacyPolicy() {
         <h1 className="text-4xl font-bold text-teal-400">Privacy Policy of ByteCamp</h1>
         
         <p className="text-gray-300 leading-relaxed">
-          ByteCamp (“we”, “our”, “us”) আপনার ব্যক্তিগত তথ্যের গোপনীয়তা রক্ষা করতে প্রতিশ্রুতিবদ্ধ। 
+          বাইটক্যাম্প (“we”, “our”, “us”) আপনার ব্যক্তিগত তথ্যের গোপনীয়তা রক্ষা করতে প্রতিশ্রুতিবদ্ধ। 
           এই Privacy Policy-তে আমরা কীভাবে আপনার তথ্য সংগ্রহ করি, ব্যবহার করি এবং সুরক্ষা করি তা ব্যাখ্যা করা হয়েছে।
         </p>
 

@@ -216,7 +216,7 @@ export default function RefundPolicy() {
 
             <div className="mt-10 bg-gray-800/60 p-6 rounded-2xl border border-gray-700 shadow-lg text-center">
               <p className="text-lg text-gray-300">
-                🎓 ByteCamp সর্বদা শিক্ষার্থীর পাশে থাকে।  
+                🎓 বাইটক্যাম্প সর্বদা শিক্ষার্থীর পাশে থাকে।  
                 রিফান্ডের প্রয়োজন হলে আমাদের সাথে যোগাযোগ করুন:
               </p>
               <p className="mt-3 text-white font-semibold">
