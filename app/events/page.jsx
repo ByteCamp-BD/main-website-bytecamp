@@ -184,14 +184,10 @@ return (
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full py-3 rounded-xl font-semibold bg-gradient-to-r from-teal-500 to-emerald-500 text-black shadow-lg hover:shadow-teal-500/30 transition"
-            onClick={() =>
-    window.open(
-      "https://docs.google.com/forms/d/e/1FAIpQLSeMNrglysiGQ9-jT8xFOJfIHo_gZ9biCPTpXK4rPkmj8opgtg/viewform?usp=header"
-    )
-  }
+            className="w-full py-3 rounded-xl font-semibold bg-gradient-to-r from-teal-500 to-red-500 text-red shadow-lg hover:shadow-teal-500/30 transition"
+         
           >
-            Vote Now 🚀
+            Event Closed
           </motion.button>
         </div>
       </motion.div>
