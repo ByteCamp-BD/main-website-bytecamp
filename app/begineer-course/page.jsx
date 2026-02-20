@@ -170,10 +170,10 @@ const [mobileOpen, setMobileOpen] = useState(false);
             {/* Batch Timing Info */}
             <div className="mt-4 text-gray-300">
               <p><strong>ব্যাচ নং:</strong>১</p>  
-              <p><strong>কোর্স চলবে :</strong>১৫ দিন+</p>
+              <p><strong>কোর্স চলবে :</strong>১২ দিন+</p>
               <p><strong>ব্যাচ এনরোলমেন্ট শুরু:</strong> ১৪ তারিখ </p>
-              <p><strong>ব্যাচ এনরোলমেন্ট শেষ:</strong> ২০ তারিখ</p>
-              <p><strong>ক্লাস শুরু:</strong>২১ তারিখ</p>
+              <p><strong>ব্যাচ এনরোলমেন্ট শেষ:</strong> ২১ তারিখ</p>
+              <p><strong>ক্লাস শুরু:</strong>২৩ তারিখ</p>
               <p><strong>সাপোর্ট ক্লাস:</strong> এক বেলা</p>
              
             </div>
