@@ -192,7 +192,7 @@ return (
         {"<"}
       </button>
 
-      <button className="w-10 h-10 rounded-lg bg-teal-500 text-black font-bold">
+      <button className="w-10 h-10 rounded-lg bg-teal-500 text-white font-bold">
         1
       </button>
 
