@@ -12,8 +12,8 @@ export default function Home() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 const [showAlert, setShowAlert] = useState(false);
-const enrollmentStart = new Date("2026-02-14T00:00:00");
-const enrollmentEnd = new Date("2026-02-20T23:59:59");
+const enrollmentStart = new Date("2026-02-14T00:00:00+06:00");
+const enrollmentEnd   = new Date("2026-02-21T23:59:59+06:00");
 
 const [enrollmentStarted, setEnrollmentStarted] = useState(false);
 const [expired, setExpired] = useState(false);
@@ -23,7 +23,7 @@ const [endTimeLeft, setEndTimeLeft] = useState({
   minutes: "00",
   seconds: "00",
 });
-
+const format = (num) => String(num).padStart(2, "0");
 useEffect(() => {
   const timer = setInterval(() => {
     const now = new Date().getTime();
@@ -34,12 +34,12 @@ useEffect(() => {
       setEnrollmentStarted(true);
       setExpired(false);
       const distance = endTime - now;
-      setEndTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((distance / (1000 * 60)) % 60),
-        seconds: Math.floor((distance / 1000) % 60),
-      });
+     setEndTimeLeft({
+  days: format(Math.floor(distance / (1000 * 60 * 60 * 24))),
+  hours: format(Math.floor((distance / (1000 * 60 * 60)) % 24)),
+  minutes: format(Math.floor((distance / (1000 * 60)) % 60)),
+  seconds: format(Math.floor((distance / 1000) % 60)),
+});
     } else if (now > endTime) {
       setExpired(true);
       setEnrollmentStarted(false);
