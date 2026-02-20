@@ -104,11 +104,7 @@ export default function EventPage() {
             <Link href="/courses?category=skill-development" className="block text-slate-200 font-medium">Skill Development</Link>
             <Link href="/about-us" className="block text-slate-200 font-medium">About</Link>
             <Link href="/exclusive-batch" className="block text-slate-200 font-medium">Exclusive Batch</Link>
-            <Link href="/">
-              <button className="w-full bg-gradient-to-r from-teal-500 to-emerald-400 text-white px-4 py-2 rounded-md mt-2">
-                Get Started
-              </button>
-            </Link>
+          
           </div>
         </div>
       )}
