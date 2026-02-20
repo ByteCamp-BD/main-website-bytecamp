@@ -79,11 +79,7 @@ export default function EventPage() {
         {/* Actions */}
         <div className="flex items-center gap-3">
           <div className="hidden sm:block">
-            <Link href="/">
-              <button className="bg-gradient-to-r from-teal-500 to-emerald-400 text-white px-4 py-2 rounded-md">
-                Get Started
-              </button>
-            </Link>
+            
           </div>
 
           <button
