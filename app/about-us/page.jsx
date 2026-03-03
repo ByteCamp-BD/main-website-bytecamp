@@ -13,6 +13,7 @@ const team = [
   { name: "Tahsin Imam Al Rafee ", role: "Video Editor", photo: "rafee.jpg" },
   { name: "Sayed Anowar ", role: "Web developer", photo: "sayed.jpg" },
   { name: "Mujahid", role: "Graphics designer", photo: "muja.png" },
+  { name: "Minhajul islam", role: "Executive, Social Media", photo: "minhaj.jpg" },
 ];
 
 function Navbar() {
