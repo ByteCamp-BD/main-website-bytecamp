@@ -9,8 +9,9 @@ import { Menu, X, ChevronDown } from "lucide-react";
 const team = [
   { name: "S M Mesbah Uddin Yusuf", role: "Chief Executive Officer (CEO)", photo: "mesbah.jpeg" },
   { name: "Mahmudul Hasan", role: "Chief Operating Officer (COO)", photo: "mypic.jpg" },
+   { name: "Tahsin Imam Al Rafee ", role: "Manager", photo: "rafee.jpg" },
   { name: "Redowan Faraz", role: "Executive, Student Relationship & Growth", photo: "redowan.jpg" },
-  { name: "Tahsin Imam Al Rafee ", role: "Video Editor", photo: "rafee.jpg" },
+
   { name: "Sayed Anowar ", role: "Web developer", photo: "sayed.jpg" },
   { name: "Mujahid", role: "Graphics designer", photo: "muja.png" },
   { name: "Minhajul islam", role: "Executive, Social Media", photo: "minhaj.jpg" },
@@ -135,7 +136,7 @@ export default function AboutPage() {
       <p className="text-gray-300 max-w-3xl mx-auto text-sm">
   আমরা দেশের সেরা না–ও হতে পারি, কিন্তু আমরা সবসময় সেই সকল পরিশ্রমী ও আগ্রহী শিক্ষার্থীদের পাশে থাকি—
   যারা স্বপ্ন গড়ে, স্বপ্ন দেখে এবং সেই স্বপ্ন বাস্তবায়নে লড়ে যায়।
-  তাদের পথচলাকে সহজ করতে, দিকনির্দেশনা দিতে এবং সামান্য হলেও সহায়তা করতে বাইটক্যাম্প  সর্বদা প্রস্তুত।
+  তাদের পথচলাকে সহজ করতে, দিকনির্দেশনা দিতে এবং সামান্য হলেও সহায়তা করতে বাইটক্যাম্প  সর্বদা প্রস্তুত ।
 </p>
 
       </motion.div>
