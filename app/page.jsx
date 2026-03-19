@@ -75,8 +75,8 @@ useEffect(() => {
 
   const statsData = [
     { label: "Students Enrolled", value: 200 },
-    { label: "Courses Available", value: 3 },
-    { label: "Mentors", value: 6 },
+    { label: "Total Success Students", value: 140 },
+    { label: "Gotted Job", value: 40 },
     { label: "Projects Completed", value: 30 },
   ];
 
@@ -451,13 +451,13 @@ useEffect(() => {
 
 
 {/* ================= ENROLLMENT TIMER ================= */}
-<section className="relative py-24 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
+{/* <section className="relative py-24 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
 
-  {/* Background Glow */}
+
   <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-teal-500/20 blur-[120px] rounded-full" />
   <div className="absolute bottom-0 -right-32 w-[400px] h-[400px] bg-emerald-500/20 blur-[120px] rounded-full" />
 
-  {/* 🔥 Floating Programming Images */}
+
   {[
     "/c-.png",
     "/python.png",
@@ -496,7 +496,7 @@ useEffect(() => {
 
 <div className="max-w-5xl mx-auto text-center px-6 relative z-10">
 
-  {/* When Enrollment is Active */}
+
   {enrollmentStarted && !expired && (
     <>
       <h2 className="text-4xl md:text-5xl font-extrabold text-teal-400 mb-4 animate-pulse">
@@ -508,7 +508,7 @@ useEffect(() => {
         তাহলে দেরি না করে এনরোল করে ফেলো মনে রেখো এনরোলমেন্ট শেষ হলে আর সুজক দেওয়া হবে না ।✨
       </p>
 
-      {/* Countdown Timer */}
+
       <div className="mt-4 flex justify-center gap-6 flex-wrap mb-8">
         {[
           { label: "দিন", value: endTimeLeft.days },
@@ -526,7 +526,7 @@ useEffect(() => {
         ))}
       </div>
 
-      {/* Enroll Now Button */}
+
       <Link href="/begineer-course">
         <button className="px-12 py-5 rounded-xl font-bold text-lg bg-gradient-to-r from-green-400 to-emerald-500 text-white shadow-lg hover:scale-105 transition">
           🚀 Enroll Now
@@ -535,7 +535,7 @@ useEffect(() => {
     </>
   )}
 
-  {/* When Enrollment is Closed */}
+
   {expired && (
     <>
       <h2 className="text-4xl md:text-5xl font-extrabold text-red-500 mb-4 animate-pulse">
@@ -546,7 +546,7 @@ useEffect(() => {
         দুঃখিত, তুমি দেরি করে ফেলেছ। এখন আর সুযোগ নেই।
       </p>
 
-      {/* Disabled Button */}
+     
       <button className="px-12 py-5 rounded-xl font-bold text-lg bg-gray-700 text-white-300 shadow-lg cursor-not-allowed">
         🚫 Enrollment Closed
       </button>
@@ -556,7 +556,7 @@ useEffect(() => {
 </div>
 
 
-</section>
+</section> */}
 
 
 
@@ -609,12 +609,7 @@ useEffect(() => {
 
   <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 px-6 relative z-10">
     {[
-      {
-        title: "সি++ এর হাতেখড়ি 🖥️",
-        desc: "সি++ এর হাতেখড়ি হোক বাইটক্যাম্প এর সাথে, সি++ শিখে নিজের স্কিল অন্য লেভেলে উন্নীত করো।",
-        link: "/begineer-course",
-        img: "course.png",
-      },
+     
       {
         title: "Basics of Competitive Programming 🖥️",
         desc: "C প্রোগ্রামিং থেকে শুরু করে C++ এর advanced concepts এবং Data Structures and Algorithms (DSA) শিখুন।",

@@ -151,10 +151,10 @@ export default function ExclusiveBatchPage() {
       {/* HERO SECTION */}
       <section className="text-center py-32 px-6 bg-gradient-to-b from-white to-gray-50">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-          Master The Art Of Learning With <span className="text-purple-600">ByteCamp Exclusive Batch</span>
+          Master The Art Of Learning With <span className="text-blue-600">ByteCamp Exclusive Batch</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-          ByteCamp Exclusive Batch তৈরি করা হয়েছে শিক্ষার্থীদের জন্য যাঁরা চান প্র্যাকটিক্যাল স্কিল, প্রজেক্ট এবং পার্সোনাল মেন্টরশিপের মাধ্যমে নিজেদের উন্নত করতে। 🚀
+          বাইটক্যাম্প এক্সক্লুসিভ ব্যাচ তৈরি করা হয়েছে শিক্ষার্থীদের জন্য যাঁরা চান প্র্যাকটিক্যাল স্কিল, প্রজেক্ট এবং পার্সোনাল মেন্টরশিপের মাধ্যমে নিজেদের উন্নত করতে। 🚀
         </p>
       </section>
 

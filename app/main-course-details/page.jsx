@@ -144,7 +144,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
                 <span className="text-gray-400 text-sm">(313 Ratings)</span> */}
               </div>
               <div className="text-xl font-bold text-green-500">
-               ৳2,500  
+               ৳৩,৫০০  
                 {/* <span className="text-sm text-purple-400 font-normal">প্রোমো অ্যাপ্লাইড</span> */}
               </div>
             </div>
@@ -159,7 +159,7 @@ const [mobileOpen, setMobileOpen] = useState(false);
             {/* Batch Timing Info */}
             <div className="mt-4 text-gray-300">
               <p><strong>ব্যাচ নং:</strong>১</p>  
-              <p><strong>কোর্স চলবে :</strong>৩ মাসের বেশি+</p>
+              <p><strong>কোর্স চলবে :</strong>৪ মাসের বেশি+</p>
               <p><strong>ব্যাচ এনরোলমেন্ট শুরু:</strong> N/A</p>
               <p><strong>ওরিয়েন্টেশন ভিডিও:</strong> N/A</p>
               <p><strong>ক্লাস শুরু:</strong> N/A</p>
