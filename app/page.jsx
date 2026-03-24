@@ -95,7 +95,6 @@ useEffect(() => {
         });
       }, 30)
     );
-
     return () => intervals.forEach(clearInterval);
   }, []);
 
