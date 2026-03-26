@@ -12,45 +12,11 @@ export default function Home() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 const [showAlert, setShowAlert] = useState(false);
-const enrollmentStart = new Date("2026-02-14T00:00:00+06:00");
-const enrollmentEnd   = new Date("2026-02-21T23:59:59+06:00");
 
-const [enrollmentStarted, setEnrollmentStarted] = useState(false);
-const [expired, setExpired] = useState(false);
-const [endTimeLeft, setEndTimeLeft] = useState({
-  days: "00",
-  hours: "00",
-  minutes: "00",
-  seconds: "00",
-});
-const format = (num) => String(num).padStart(2, "0");
-useEffect(() => {
-  const timer = setInterval(() => {
-    const now = new Date().getTime();
-    const startTime = enrollmentStart.getTime();
-    const endTime = enrollmentEnd.getTime();
 
-    if (now >= startTime && now <= endTime) {
-      setEnrollmentStarted(true);
-      setExpired(false);
-      const distance = endTime - now;
-     setEndTimeLeft({
-  days: format(Math.floor(distance / (1000 * 60 * 60 * 24))),
-  hours: format(Math.floor((distance / (1000 * 60 * 60)) % 24)),
-  minutes: format(Math.floor((distance / (1000 * 60)) % 60)),
-  seconds: format(Math.floor((distance / 1000) % 60)),
-});
-    } else if (now > endTime) {
-      setExpired(true);
-      setEnrollmentStarted(false);
-    } else {
-      setEnrollmentStarted(false);
-      setExpired(false);
-    }
-  }, 1000);
 
-  return () => clearInterval(timer);
-}, []);
+
+
 
 
 
