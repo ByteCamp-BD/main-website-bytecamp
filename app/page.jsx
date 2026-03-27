@@ -576,7 +576,7 @@ const [showAlert, setShowAlert] = useState(false);
     {[
      
       {
-        title: "Basics of Competitive Programming 🖥️",
+        title: "Zero to Competitive Programmer 🚀",
         desc: "C প্রোগ্রামিং থেকে শুরু করে C++ এর advanced concepts এবং Data Structures and Algorithms (DSA) শিখুন।",
         link: "/main-course-details",
         img: "ByteCamp logo.jpg",
