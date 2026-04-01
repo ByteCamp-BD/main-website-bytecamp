@@ -545,6 +545,7 @@ export default function ByteCampPage() {
       { photo: "/sayed.jpg" },
       { photo: "/rafee.jpg" },
       { photo: "/muja.png" },
+      { photo: "/minhaj.jpg" },
     ].map((member, i) => (
       <SwiperSlide key={i}>
         <motion.div

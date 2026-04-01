@@ -11,10 +11,10 @@ const team = [
   { name: "Mahmudul Hasan", role: "Chief Operating Officer (COO)", photo: "mypic.jpg" },
    { name: "Tahsin Imam Al Rafee ", role: "Manager", photo: "rafee.jpg" },
   { name: "Redowan Faraz", role: "Executive, Student Relationship & Growth", photo: "redowan.jpg" },
-
   { name: "Sayed Anowar ", role: "Web developer", photo: "sayed.jpg" },
   { name: "Mujahid", role: "Graphics designer", photo: "muja.png" },
   { name: "Minhajul islam", role: "Executive, Social Media", photo: "minhaj.jpg" },
+  { name: "Farhana islam neha", role: "Intern", photo: "neha.jpg" },
 ];
 
 function Navbar() {
