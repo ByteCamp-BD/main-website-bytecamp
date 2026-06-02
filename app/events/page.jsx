@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Users, Award, Heart, BookOpen  ,GraduationCap, Rocket, Trophy,CalendarDays ,Clock , ChevronDown, Menu, X } from "lucide-react";
 import Button from "@mui/material/Button";
-
+import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -16,7 +16,7 @@ import "swiper/css/pagination";
 export default function EventPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
+  const router = useRouter();
  const Navbar = () => (
     <nav className="fixed top-0 w-full z-50 bg-black/70 backdrop-blur-md border-b border-gray-800">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
@@ -148,8 +148,8 @@ return (
           />
 
           {/* Tag */}
-          <span className="absolute top-4 left-4 bg-teal-500 text-black text-xs font-semibold px-3 py-1 rounded-full">
-            LIVE EVENT
+          <span className="absolute top-4 left-4 bg-teal-500 text-red text-xs font-semibold px-3 py-1 rounded-full">
+            Closed Event
           </span>
         </div>
 
@@ -184,8 +184,60 @@ return (
         </div>
       </motion.div>
 
-    </div>
+ {/* EVENT CARD */}
+      <motion.div
+        whileHover={{ y: -8 }}
+        transition={{ duration: 0.3 }}
+        className="group relative bg-gray-900/60 backdrop-blur-xl border border-gray-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-teal-500/10"
+      >
+        {/* Glow Effect */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-tr from-teal-500/10 to-emerald-500/10" />
 
+        {/* Image */}
+        <div className="relative overflow-hidden">
+          <Image
+            src="/cm.png"
+            alt="ByteCamp Election"
+            width={400}
+            height={220}
+            className="w-full h-[220px] object-cover group-hover:scale-110 transition duration-500"
+          />
+
+          {/* Tag */}
+          <span className="absolute top-4 left-4 bg-teal-500 text-black text-xs font-semibold px-3 py-1 rounded-full">
+            LIVE EVENT
+          </span>
+        </div>
+
+        {/* CONTENT */}
+        <div className="p-6 relative z-10">
+
+          <h2 className="text-xl font-bold mb-4">
+           CodeMind Clash with ByteCamp - 2026
+          </h2>
+
+          {/* Date */}
+          <div className="flex items-center gap-2 text-gray-400 mb-2">
+            <CalendarDays size={18} />
+            <span>Preliminary Round 16 June</span>
+          </div>
+
+
+          {/* BUTTON */}
+          <motion.button
+           // onClick={() => router.push("/cmcb")}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-full py-3 rounded-xl font-semibold bg-gradient-to-r from-teal-500 to-red-500 text-red shadow-lg hover:shadow-teal-500/30 transition"
+         
+          >
+            Join now
+          </motion.button>
+        </div>
+      </motion.div>
+    </div>
+ 
+ 
     {/* PAGINATION */}
     <div className="flex justify-center items-center gap-4 mt-16 pb-16">
       <button className="w-10 h-10 rounded-lg bg-gray-800 hover:bg-gray-700 transition">

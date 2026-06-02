@@ -7,8 +7,8 @@ import Link from "next/link";
 import Button from "@mui/material/Button";
 import { Menu, X, ChevronDown } from "lucide-react";
 const instructors = [
-  { name: "Mahmudul Hasan", role: "Senior Skill instructor", photo: "/mypic.jpg" },
-  { name: "Sayed Anowar", role: "Senior Skill instructor", photo: "/sayed.jpg" },
+  { name: "Mahmudul Hasan", role: "Sr. Skill instructor", photo: "/mypic.jpg" },
+  { name: "Sayed Anowar", role: "Sr. Skill instructor", photo: "/sayed.jpg" },
 ];
 
 const courseFor = [

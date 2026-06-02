@@ -71,12 +71,7 @@ const [showAlert, setShowAlert] = useState(false);
       feedback: "ByteCamp এর কোর্সের মাধ্যমে আমি programming শিখেছি এবং confidence পেয়েছি। Mentors খুব supportive!",
       img: "/hijab.jpg",
     },
-    {
-      name: "Minhaj Islam",
-      course: "A little programming",
-      feedback: "ByteCamp এর কোর্সের মাধ্যমে আমি programming শিখেছি এবং confidence পেয়েছি। Mentors খুব supportive!",
-      img: "/minhaj.jpg",
-    },
+  
     {
       name: "Imtiaj islam maisha",
       course: "Basics of programming",
