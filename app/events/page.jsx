@@ -225,7 +225,7 @@ return (
 
           {/* BUTTON */}
           <motion.button
-           // onClick={() => router.push("/cmcb")}
+            onClick={() => router.push("/cmcb")}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="w-full py-3 rounded-xl font-semibold bg-gradient-to-r from-teal-500 to-red-500 text-red shadow-lg hover:shadow-teal-500/30 transition"

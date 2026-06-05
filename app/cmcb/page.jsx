@@ -222,19 +222,19 @@ export default function CodeMindClash() {
               <div className="text-xs text-gray-400">8:00 PM - 11:00 PM</div>
             </div>
 
-            {/* <div className="p-5 rounded-2xl bg-gray-950/50 border border-gray-800/80">
+            <div className="p-5 rounded-2xl bg-gray-950/50 border border-gray-800/80">
               <CheckCircle2 className="w-6 h-6 text-emerald-400 mb-3" />
               <div className="text-sm text-gray-500">Registration Opens</div>
               <div className="text-lg font-bold text-gray-200">Coming Soon</div>
               <div className="text-xs text-emerald-400">Stay tuned!</div>
-            </div> */}
+            </div>
 
-            <div className="p-5 rounded-2xl bg-gray-950/50 border border-gray-800/80">
+            {/* <div className="p-5 rounded-2xl bg-gray-950/50 border border-gray-800/80">
               <AlertTriangle className="w-6 h-6 text-red-400 mb-3" />
               <div className="text-sm text-gray-500">Reg. Deadline</div>
-              <div className="text-lg font-bold text-gray-200">28 Dec 2025</div>
+              <div className="text-lg font-bold text-gray-200">28 Dec 2026</div>
               <div className="text-xs text-red-400">Strictly enforced</div>
-            </div>
+            </div> */}
           </div>
 
           {/* ROADMAP TIMELINE */}
