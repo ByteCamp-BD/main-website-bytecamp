@@ -15,14 +15,6 @@ const [showAlert, setShowAlert] = useState(false);
 
 
 
-
-
-
-
-
-
-
-
   // ✅ Check login persistence
   useEffect(() => {
     const loggedIn = localStorage.getItem("isLoggedIn");

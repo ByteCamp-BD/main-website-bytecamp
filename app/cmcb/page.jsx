@@ -149,18 +149,18 @@ export default function CodeMindClash() {
           className="mb-6 flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-900/80 border border-purple-500/30 text-purple-400 text-sm font-mono shadow-lg backdrop-blur-sm"
         >
           <Terminal className="w-4 h-4 animate-pulse" />
-          <span>🚀 namespace ByteCamp {'{ void main() }'}</span>
+          <span>🚀 int main {'{ cout<<"Welcome!☺️ }'}</span>
         </motion.div>
 
         {/* Main Head Title */}
-        <motion.h1 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-8xl font-black tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-blue-400"
-        >
-          CODEMIND CLASH
-        </motion.h1>
+        <motion.h1
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+  className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-blue-400 md:whitespace-nowrap"
+>
+  CodeMind Clash with ByteCamp - 2026
+</motion.h1>
 
         <motion.p 
           initial={{ opacity: 0 }}
@@ -168,7 +168,7 @@ export default function CodeMindClash() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg md:text-2xl text-gray-400 font-medium max-w-2xl mb-10 px-4"
         >
-          Unleash your inner programmer in the ultimate multi-tier competitive arena.
+          A Battlefield of Logic, Speed, and Competitive Excellence.
         </motion.p>
 
         {/* Top Floating Register Button */}
@@ -196,9 +196,7 @@ export default function CodeMindClash() {
           variants={fadeInUp}
           className="relative bg-gradient-to-b from-gray-900/60 to-gray-900/20 p-8 md:p-12 rounded-3xl border border-gray-800 backdrop-blur-md"
         >
-          <div className="absolute top-0 right-12 transform -translate-y-1/2 bg-blue-600 text-xs uppercase tracking-widest font-extrabold px-4 py-1.5 rounded-full shadow-lg border border-blue-400/30">
-            Phase 1
-          </div>
+         
 
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-blue-400 flex items-center gap-3">
             <Terminal className="w-8 h-8" /> Preliminary Round Overview
@@ -207,24 +205,29 @@ export default function CodeMindClash() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             <div className="p-5 rounded-2xl bg-gray-950/50 border border-gray-800/80">
               <Calendar className="w-6 h-6 text-purple-400 mb-3" />
-              <div className="text-sm text-gray-500">Event Date</div>
-              <div className="text-lg font-bold text-gray-200">30 Dec 2025</div>
+              <div className="text-sm text-gray-500">MCQ Event Date</div>
+              <div className="text-lg font-bold text-gray-200">16 June 2026</div>
               <div className="text-xs text-gray-400">Tuesday</div>
             </div>
-
+           <div className="p-5 rounded-2xl bg-gray-950/50 border border-gray-800/80">
+              <Calendar className="w-6 h-6 text-purple-400 mb-3" />
+              <div className="text-sm text-gray-500">Contest Event Date</div>
+              <div className="text-lg font-bold text-gray-200">18 June 2026</div>
+              <div className="text-xs text-gray-400">Tuesday</div>
+            </div>
             <div className="p-5 rounded-2xl bg-gray-950/50 border border-gray-800/80">
               <Clock className="w-6 h-6 text-blue-400 mb-3" />
-              <div className="text-sm text-gray-500">Duration</div>
+              <div className="text-sm text-gray-500">Contest & Mcq Duration</div>
               <div className="text-lg font-bold text-gray-200">3 Hours</div>
               <div className="text-xs text-gray-400">8:00 PM - 11:00 PM</div>
             </div>
 
-            <div className="p-5 rounded-2xl bg-gray-950/50 border border-gray-800/80">
+            {/* <div className="p-5 rounded-2xl bg-gray-950/50 border border-gray-800/80">
               <CheckCircle2 className="w-6 h-6 text-emerald-400 mb-3" />
               <div className="text-sm text-gray-500">Registration Opens</div>
               <div className="text-lg font-bold text-gray-200">Coming Soon</div>
               <div className="text-xs text-emerald-400">Stay tuned!</div>
-            </div>
+            </div> */}
 
             <div className="p-5 rounded-2xl bg-gray-950/50 border border-gray-800/80">
               <AlertTriangle className="w-6 h-6 text-red-400 mb-3" />
@@ -242,7 +245,7 @@ export default function CodeMindClash() {
               <div className="relative pl-6 border-l-2 border-purple-500/50">
                 <div className="absolute w-4 h-4 bg-purple-500 rounded-full -left-[9px] top-1.5 shadow-[0_0_10px_#a855f7]" />
                 <h4 className="font-bold text-white text-lg">Preliminary Round</h4>
-                <p className="text-sm text-gray-400 mt-1">December 2025. Online assessment phase containing coding & conceptual questions.</p>
+                <p className="text-sm text-gray-400 mt-1">June 2026. Online assessment phase containing coding & conceptual questions.</p>
               </div>
 
               <div className="relative pl-6 border-l-2 border-blue-500/30">
@@ -274,7 +277,7 @@ export default function CodeMindClash() {
               <Code className="w-6 h-6" /> Contest Format
             </h3>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Preliminary round ti hobe multi-dimensional challenge base e. Ekhane computational logic test er jonno dynamic platforms use kora hobe.
+             প্রাথমিক পর্বে অংশগ্রহণকারীদের প্রোগ্রামিং দক্ষতা, সমস্যা সমাধানের ক্ষমতা এবং যৌক্তিক বিশ্লেষণী চিন্তাশক্তি যাচাই করা হবে। এ জন্য কোডিং চ্যালেঞ্জ ও মূল্যায়ন কার্যক্রম পরিচালনার লক্ষ্যে আধুনিক অনলাইন প্ল্যাটফর্ম ব্যবহার করা হবে।
             </p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-gray-300">
@@ -293,10 +296,10 @@ export default function CodeMindClash() {
               <Terminal className="w-6 h-6" /> Allowed Languages
             </h3>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Contestant-ra tader pochondomoto nicher professional languages use kore competitive tracks solve korte parbe:
+           প্রতিযোগীরা নিচে উল্লেখিত পেশাদার প্রোগ্রামিং ভাষাগুলোর মধ্যে থেকে নিজেদের পছন্দ অনুযায়ী ভাষা ব্যবহার করে প্রতিযোগিতার সমস্যা সমাধান করতে পারবে:
             </p>
             <div className="flex flex-wrap gap-3">
-              {['C', 'C++', 'Java', 'Python'].map((lang) => (
+              {['C', 'C++', 'Python'].map((lang) => (
                 <span key={lang} className="px-4 py-2 bg-gray-950 rounded-xl border border-gray-800 font-mono text-sm text-gray-300 hover:border-purple-500/50 transition-colors">
                   {lang}
                 </span>
@@ -325,8 +328,7 @@ export default function CodeMindClash() {
                 <span className="w-2 h-2 rounded-full bg-red-500" /> Plagiarism & Copying
               </h4>
               <p className="text-sm text-gray-400 leading-relaxed">
-                Kono rokom code copy ba code sharing absolute <strong>banned</strong>. Onno karo code use korle ba plagiarism dhora porle direct contest theke <strong>disqualify</strong> kora hobe.
-              </p>
+কোনো ধরনের কোড কপি করা বা কোড শেয়ার করা সম্পূর্ণভাবে নিষিদ্ধ। অন্য কারো কোড ব্যবহার করলে বা প্লেজিয়ারিজম ধরা পড়লে সরাসরি প্রতিযোগিতা থেকে ডিসকোয়ালিফাই করা হবে। ByteCamp-এর AI-ভিত্তিক মনিটরিং সিস্টেম “ByCam” প্রতিটি সাবমিশন বিশ্লেষণ করবে এবং যেকোনো ধরনের অনিয়ম বা কপি করা কন্টেন্ট শনাক্ত করতে সক্ষম। তাই সকল অংশগ্রহণকারীকে কঠোরভাবে সতর্ক করা হচ্ছে যে তারা শুধুমাত্র নিজের দক্ষতার ভিত্তিতেই প্রতিযোগিতায় অংশগ্রহণ করবে।              </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-gray-950/60 border border-gray-800 hover:border-red-900/30 transition-all">
@@ -334,7 +336,7 @@ export default function CodeMindClash() {
                 <span className="w-2 h-2 rounded-full bg-red-500" /> False Information
               </h4>
               <p className="text-sm text-gray-400 leading-relaxed">
-                Registration Form-e kono rokom bhul ba false info (vul profile URL, fake identity) deoya jabe na. Bhul tortho dile direct account termination and registration reject kora hobe.
+             Registration form-এ কোনো ধরনের ভুল বা মিথ্যা তথ্য (যেমন ভুল profile URL, fake identity বা ভুল HackerRank username) প্রদান করা যাবে না। সঠিক এবং যাচাইকৃত তথ্য প্রদান করা বাধ্যতামূলক। ভুল তথ্য প্রদান করলে সরাসরি registration বাতিল করা হবে এবং প্রয়োজনে অ্যাকাউন্ট টার্মিনেশন পর্যন্ত ব্যবস্থা নেওয়া হতে পারে। প্রতিযোগিতার স্বচ্ছতা ও ন্যায্যতা বজায় রাখতে ByteCamp এই নিয়ম কঠোরভাবে অনুসরণ করে।
               </p>
             </div>
 
@@ -343,7 +345,7 @@ export default function CodeMindClash() {
                 <AlertTriangle className="w-4 h-4" /> Consequences of Misconduct
               </h4>
               <p className="text-sm text-gray-400 leading-relaxed">
-                Nokol korle ba system policy breach korle immediate rules onujayi event blacklisting kora hobe. ByteCamp upcoming kono event-e ar participate korte deoya hobe na. Maintain absolute integrity!
+               কোনো ধরনের অনিয়ম, নকল করা বা সিস্টেম পলিসি ভঙ্গ করলে তাৎক্ষণিকভাবে নিয়ম অনুযায়ী ইভেন্ট থেকে ব্ল্যাকলিস্ট করা হবে। ByteCamp-এর ভবিষ্যৎ যেকোনো ইভেন্টে অংশগ্রহণের সুযোগ স্থায়ীভাবে বাতিল করা হতে পারে। প্রতিযোগিতার ন্যায্যতা ও স্বচ্ছতা বজায় রাখতে সকল অংশগ্রহণকারীকে সর্বোচ্চ সততা ও নৈতিকতা বজায় রাখার জন্য কঠোরভাবে নির্দেশ দেওয়া হচ্ছে।
               </p>
             </div>
           </div>
@@ -371,7 +373,7 @@ export default function CodeMindClash() {
               </div>
               <h4 className="font-bold text-white mb-2">Preliminary Round</h4>
               <p className="text-xs text-gray-400 leading-relaxed">
-                Preliminary round-e direct perks na thakleo eta execution and experience build-up e help korbe. Next round details unlock hobe tracking dynamic e.
+               প্রিলিমিনারি রাউন্ডে সরাসরি কোনো পার্কস না থাকলেও এটি অংশগ্রহণকারীদের দক্ষতা উন্নয়ন, বাস্তব অভিজ্ঞতা অর্জন এবং সমস্যা সমাধানের সক্ষমতা বৃদ্ধিতে গুরুত্বপূর্ণ ভূমিকা রাখবে। পরবর্তী রাউন্ডের বিস্তারিত তথ্য অংশগ্রহণকারীদের পারফরম্যান্স ট্র্যাকিং অনুযায়ী ধাপে ধাপে আনলক করা হবে।
               </p>
             </motion.div>
 
@@ -435,7 +437,9 @@ export default function CodeMindClash() {
 
               <h3 className="text-2xl font-bold text-white mb-2">Registration Not Started</h3>
               <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                CodeMind Clash event-er official registration portal ekhono shuru hoy ni. Updates peye jabe apnar internal community track-e khub shiggori!
+               CodeMind Clash with ByteCamp 2026-এর অফিসিয়াল রেজিস্ট্রেশন এখনো শুরু হয়নি।
+  রেজিস্ট্রেশন চালু হলে আমাদের কমিউনিটি ও অফিসিয়াল প্ল্যাটফর্মে জানিয়ে দেওয়া হবে।
+  সর্বশেষ আপডেটের জন্য আমাদের সাথে যুক্ত থাকুন।
               </p>
 
               <button
