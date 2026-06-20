@@ -14,7 +14,7 @@ const team = [
   { name: "Sayed Anowar ", role: "Web developer", photo: "sayed.jpg" },
   { name: "Mujahid", role: "Graphics designer", photo: "muja.png" },
   { name: "Minhajul islam", role: "Executive, Social Media", photo: "minhaj.jpg" },
-  { name: "Farhana islam neha", role: "Executive, Social Media", photo: "neha.jpg" },
+  // { name: "Farhana islam neha", role: "Executive, Social Media", photo: "neha.jpg" },
 ];
 
 function Navbar() {

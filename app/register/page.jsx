@@ -205,7 +205,7 @@ export default function ByteCampRegisterPage() {
                   <User className="w-6 h-6" />
                 </div>
                 <input
-                  type="text" required placeholder="John Doe"
+                  type="text" required placeholder="Mesbah Uddin Yusuf"
                   className="w-full pl-14 pr-5 py-4 bg-gray-950/80 border border-gray-800 rounded-xl text-slate-100 placeholder-slate-700 outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/10 transition-all text-lg font-medium"
                   value={formData.fullName} onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                 />
