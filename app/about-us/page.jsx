@@ -8,7 +8,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 
 const team = [
   { name: "S M Mesbah Uddin Yusuf", role: "Chief Executive Officer (CEO)", photo: "mesbah.jpeg" },
-  { name: "Mahmudul Hasan", role: "Chief Operating Officer (COO)", photo: "mypic.jpg" },
+  { name: "Mahmudul Hasan", role: "Chief Operating Officer (COO)", photo: "hasan1.jpg" },
    { name: "Tahsin Imam Al Rafee ", role: "Manager", photo: "rafee.jpg" },
   { name: "Redowan Faraz", role: "Executive, Student Relationship & Growth", photo: "redowan.jpg" },
   { name: "Sayed Anowar ", role: "Web developer", photo: "sayed.jpg" },

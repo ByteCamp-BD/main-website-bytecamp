@@ -22,7 +22,7 @@ export default function TeamPage() {
       name: "Mahmudul Hasan",
       role: "Co-founder & COO",
       bio: "মাহমুদ হলেন বাইটক্যাম্প  এর সহ-পরিচালকমাহমুদ এবং একজন কম্পেটিটিভ প্রোগ্রামার এবং Flutter developer।  তিনি বর্তমানে নবম শ্রেণির শিক্ষার্থী |",
-      image: "/mypic.jpg",
+      image: "/hasan1.jpg",
       facebook: "https://www.facebook.com/dev.hasan0007",
       linkedin: "https://linkedin.com",
       github: "https://github.com/mahmudulhasan-app",

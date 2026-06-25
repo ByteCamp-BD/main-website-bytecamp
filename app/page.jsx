@@ -566,6 +566,18 @@ const [showAlert, setShowAlert] = useState(false);
         title: "Zero to Competitive Programmer 🚀",
         desc: "C প্রোগ্রামিং থেকে শুরু করে C++ এর advanced concepts এবং Data Structures and Algorithms (DSA) শিখুন।",
         link: "/main-course-details",
+        img: "course1.png",
+      },
+      {
+        title: "C++ For DSA",
+        desc: " এখানে C++ এর STL এবং Data Structures and Algorithms (DSA) খুঁটিনাটি কিছু জিনিস শিখুন ।",
+        link: "/maincourse-details",
+        img: "ByteCamp logo.jpg",
+      },
+      {
+        title: "Arabic নাহু ও সরফ বেসিক কোর্স ",
+        desc: "আরবি ভাষার ভিত্তি মজবুত করতে নাহু (ব্যাকরণ) ও সরফ (শব্দরূপ) সহজ ও প্র্যাকটিক্যাল উপায়ে শিখুন। কুরআন ও হাদিস বোঝার প্রথম ধাপ শুরু হোক এই কোর্সের মাধ্যমে।",
+        link: "/man-course-details",
         img: "ByteCamp logo.jpg",
       },
     ].map((course, i) => (

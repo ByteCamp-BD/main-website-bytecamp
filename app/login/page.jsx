@@ -188,7 +188,7 @@ export default function ByteCampLogin() {
             </div>
             
             <h2 className="text-3xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-teal-200 to-blue-400">
-              ByteCamp
+              Welcome Back, Future Innovator. ⭐
             </h2>
             <p className="text-xs text-slate-400 mt-1.5 flex items-center justify-center gap-1.5">
               <Terminal className="w-3.5 h-3.5 text-teal-400" />
