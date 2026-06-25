@@ -233,7 +233,7 @@ export default function ByteCampRegisterPage() {
                     <CheckCircle2 className="w-8 h-8 text-white" />
                   </div>
                 </motion.div>
-                <p className="text-2xl font-black text-slate-100">স্বাগতম ByteCamp-এ! 🎉</p>
+                <p className="text-2xl font-black text-slate-100">স্বাগতম বাইটক্যাম্পে! 🎉</p>
                 <p className="text-slate-500 text-sm">আপনার অ্যাকাউন্ট তৈরি হয়েছে</p>
               </motion.div>
             )}
