@@ -255,7 +255,7 @@ export default function ByteCampRegisterPage() {
                 </div>
               </div>
               <h2 className="text-4xl md:text-5xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-teal-200 to-blue-400 mb-2">
-                Join ByteCamp
+              Build Your Skill With ByteCamp
               </h2>
               <p className="text-base text-slate-500 flex items-center justify-center gap-2">
                 <Terminal className="w-4 h-4 text-teal-400 shrink-0" />
@@ -293,7 +293,7 @@ export default function ByteCampRegisterPage() {
                 <input
                   type="text"
                   required
-                  placeholder="Mesbah Uddin Yusuf"
+                  placeholder="Minhajul Islam"
                   className={inputClass}
                   value={formData.fullName}
                   onChange={update('fullName')}
