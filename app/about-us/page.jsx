@@ -10,11 +10,12 @@ const team = [
   { name: "S M Mesbah Uddin Yusuf", role: "Chief Executive Officer (CEO)", photo: "mesbah.jpeg" },
   { name: "Mahmudul Hasan", role: "Chief Operating Officer (COO)", photo: "hasan1.jpg" },
    { name: "Tahsin Imam Al Rafee ", role: "Manager", photo: "rafee.jpg" },
+   { name: "Suaid Mohammad ", role: "Associate Manager", photo: "suaid.jpg" },
   { name: "Redowan Faraz", role: "Executive, Student Relationship & Growth", photo: "redowan.jpg" },
   { name: "Sayed Anowar ", role: "Web developer", photo: "sayed.jpg" },
   { name: "Mujahid", role: "Graphics designer", photo: "muja.png" },
   { name: "Minhajul islam", role: "Executive, Social Media", photo: "minhaj.jpg" },
-  // { name: "Farhana islam neha", role: "Executive, Social Media", photo: "neha.jpg" },
+  
 ];
 
 function Navbar() {
