@@ -6,16 +6,16 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 
+// All team members in a single array, to display 3 per row perfectly
 const team = [
-  { name: "S M Mesbah Uddin Yusuf", role: "Chief Executive Officer (CEO)", photo: "mesbah.jpeg" },
-  { name: "Mahmudul Hasan", role: "Chief Operating Officer (COO)", photo: "hasan1.jpg" },
-   { name: "Tahsin Imam Al Rafee ", role: "Manager", photo: "rafee.jpg" },
-   { name: "Suaid Mohammad ", role: "Associate Manager", photo: "suaid.jpg" },
-  { name: "Redowan Faraz", role: "Executive, Student Relationship & Growth", photo: "redowan.jpg" },
-  { name: "Sayed Anowar ", role: "Web developer", photo: "sayed.jpg" },
-  { name: "Mujahid", role: "Graphics designer", photo: "muja.png" },
-  { name: "Minhajul islam", role: "Executive, Social Media", photo: "minhaj.jpg" },
-  
+  { name: "S M Mesbah Uddin Yusuf", role: "Chief Executive Officer (CEO)", photo: "m1.png" },
+  { name: "Mahmudul Hasan", role: "Chief Operating Officer (COO)", photo: "h1.png" },
+  { name: "Tahsin Imam Al Rafee ", role: "Manager", photo: "r1.png" },
+  { name: "Suaid Mohammad ", role: "Associate Manager", photo: "s1.png" },
+  { name: "Redowan Faraz", role: "Executive, Student Relationship & Growth", photo: "r2.png" },
+  { name: "Sayed Anowar ", role: "Web developer", photo: "s2.png" },
+  { name: "Mujahid", role: "Graphics designer", photo: "m21.png" },
+  { name: "Minhajul islam", role: "Executive, Social Media", photo: "m2.png" },
 ];
 
 function Navbar() {
@@ -134,46 +134,50 @@ export default function AboutPage() {
         transition={{ duration: 0.7 }}
       >
         <h1 className="text-5xl font-extrabold text-cyan-400 mb-5">About Us</h1>
-      <p className="text-gray-300 max-w-3xl mx-auto text-sm">
-  আমরা দেশের সেরা না–ও হতে পারি, কিন্তু আমরা সবসময় সেই সকল পরিশ্রমী ও আগ্রহী শিক্ষার্থীদের পাশে থাকি—
-  যারা স্বপ্ন গড়ে, স্বপ্ন দেখে এবং সেই স্বপ্ন বাস্তবায়নে লড়ে যায়।
-  তাদের পথচলাকে সহজ করতে, দিকনির্দেশনা দিতে এবং সামান্য হলেও সহায়তা করতে বাইটক্যাম্প  সর্বদা প্রস্তুত ।
-</p>
-
+        <p className="text-gray-300 max-w-3xl mx-auto text-sm">
+          আমরা দেশের সেরা না–ও হতে পারি, কিন্তু আমরা সবসময় সেই সকল পরিশ্রমী ও আগ্রহী শিক্ষার্থীদের পাশে থাকি—
+          যারা স্বপ্ন গড়ে, স্বপ্ন দেখে এবং সেই স্বপ্ন বাস্তবায়নে লড়ে যায়।
+          তাদের পথচলাকে সহজ করতে, দিকনির্দেশনা দিতে এবং সামান্য হলেও সহায়তা করতে বাইটক্যাম্প সর্বদা প্রস্তুত।
+        </p>
       </motion.div>
 
-      {/* Team Section */}
+      {/* Team Section (3 items per row layout) */}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }}>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {team.map((member, i) => (
             <motion.div
               key={i}
-              className="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-cyan-500/30 hover:scale-105 transition"
+              className="flex flex-col items-center text-center p-4 group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
             >
-              <div className="flex flex-col items-center text-center">
-                <div className="w-28 h-28 mb-4 rounded-full overflow-hidden border-2 border-cyan-400 shadow-md">
+              {/* Phitron Style Image Wrapper with Background Accent */}
+              <div className="relative w-full h-64 mb-4 flex items-end justify-center">
+                {/* Background Geometric Shape (Phitron style backdrop accent) */}
+                <div className="absolute top-4 w-36 h-44 bg-cyan-950/40 rounded-t-2xl transform skew-y-6 group-hover:bg-cyan-900/55 transition duration-300"></div>
+                
+                {/* Member Photo */}
+                <div className="relative w-48 h-56 overflow-hidden">
                   <Image
                     src={member.photo}
                     alt={member.name}
-                    width={112}
-                    height={112}
-                    className="w-full h-full object-cover"
+                    width={200}
+                    height={250}
+                    className="w-full h-full object-cover object-bottom"
                   />
                 </div>
-                <h3 className="text-xl font-semibold">{member.name}</h3>
-                <p className="text-cyan-300 text-sm mt-1 mb-3">{member.role}</p>
               </div>
+
+              <h3 className="text-lg font-bold text-white mt-2">{member.name}</h3>
+              <p className="text-m text-white mt-2">{member.role}</p>
             </motion.div>
           ))}
         </div>
       </motion.div>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-slate-400 py-12 px-4 sm:px-6 lg:px-8 mt-16">
+      <footer className="bg-gray-900 text-slate-400 py-12 px-4 sm:px-6 lg:px-8 mt-24">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-5 gap-8">
             {/* Logo Section */}
