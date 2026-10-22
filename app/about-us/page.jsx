@@ -11,7 +11,7 @@ const team = [
   { name: "S M Mesbah Uddin Yusuf", role: "Chief Executive Officer (CEO)", photo: "m1.png" },
   { name: "Mahmudul Hasan", role: "Chief Operating Officer (COO)", photo: "h1.png" },
   { name: "Tahsin Imam Al Rafee ", role: "Manager", photo: "r1.png" },
-  { name: "Suaid Mohammad ", role: "Associate Manager", photo: "s1.png" },
+  { name: "Suaid Mohammad ", role: "Executive, Student Relationship & Growth", photo: "s1.png" },
   { name: "Redowan Faraz", role: "Executive, Student Relationship & Growth", photo: "r2.png" },
   { name: "Sayed Anowar ", role: "Web developer", photo: "s2.png" },
   { name: "Mujahid", role: "Graphics designer", photo: "m21.png" },
@@ -141,40 +141,66 @@ export default function AboutPage() {
         </p>
       </motion.div>
 
-      {/* Team Section (3 items per row layout) */}
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {team.map((member, i) => (
-            <motion.div
-              key={i}
-              className="flex flex-col items-center text-center p-4 group"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-            >
-              {/* Phitron Style Image Wrapper with Background Accent */}
-              <div className="relative w-full h-64 mb-4 flex items-end justify-center">
-                {/* Background Geometric Shape (Phitron style backdrop accent) */}
-                <div className="absolute top-4 w-36 h-44 bg-cyan-950/40 rounded-t-2xl transform skew-y-6 group-hover:bg-cyan-900/55 transition duration-300"></div>
-                
-                {/* Member Photo */}
-                <div className="relative w-48 h-56 overflow-hidden">
-                  <Image
-                    src={member.photo}
-                    alt={member.name}
-                    width={200}
-                    height={250}
-                    className="w-full h-full object-cover object-bottom"
-                  />
-                </div>
-              </div>
+     {/* Team Section — 3 members per row */}
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.8 }}
+>
+  <div className="mx-auto grid max-w-6xl grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+    {team.map((member, i) => (
+      <motion.div
+        key={member.name}
+        className="group flex flex-col items-center text-center"
+        initial={{ opacity: 0, y: 25 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: i * 0.08 }}
+      >
+        {/* Phitron-style image */}
+        <div className="relative mb-4 flex h-64 w-full max-w-[260px] items-end justify-center">
+          {/* Blue geometric background */}
+          <div
+            className="absolute left-[12%] top-[12%] h-[68%] w-[76%] bg-gradient-to-br from-blue-700/70 via-blue-900/70 to-cyan-500/20 transition-all duration-500 group-hover:scale-105 group-hover:from-blue-500/80 group-hover:to-cyan-400/40"
+            style={{
+              clipPath:
+                "polygon(0 0, 68% 24%, 100% 72%, 48% 100%, 0 56%)",
+            }}
+          />
 
-              <h3 className="text-lg font-bold text-white mt-2">{member.name}</h3>
-              <p className="text-m text-white mt-2">{member.role}</p>
-            </motion.div>
-          ))}
+          {/* Blue glow */}
+          <div className="absolute inset-8 rounded-full bg-blue-500/0 blur-3xl transition duration-500 group-hover:bg-blue-500/30" />
+
+          {/* Member photo */}
+          <div className="relative z-10 h-full w-48 overflow-hidden">
+            <Image
+              src={member.photo.startsWith("/") ? member.photo : `/${member.photo}`}
+              alt={member.name}
+              width={240}
+              height={280}
+              className="h-full w-full object-contain object-bottom transition-all duration-500 ease-out group-hover:scale-110 group-hover:brightness-90"
+            />
+
+            {/* Blue hover overlay */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-blue-600/40 via-blue-500/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+          </div>
         </div>
+
+        {/* Name */}
+        <h3 className="mt-2 text-xl font-bold text-white transition-colors duration-300 group-hover:text-blue-300">
+          {member.name}
+        </h3>
+
+        {/* Accent line */}
+        <div className="mt-2 h-[2px] w-10 rounded-full bg-blue-500/70 transition-all duration-300 group-hover:w-16 group-hover:bg-cyan-300" />
+
+        {/* Role */}
+        <p className="mt-2 max-w-[280px] text-sm leading-6 text-slate-300">
+          {member.role}
+        </p>
       </motion.div>
+    ))}
+  </div>
+</motion.div>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-slate-400 py-12 px-4 sm:px-6 lg:px-8 mt-24">
