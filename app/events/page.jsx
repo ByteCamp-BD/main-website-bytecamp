@@ -219,7 +219,7 @@ return (
           {/* Date */}
           <div className="flex items-center gap-2 text-gray-400 mb-2">
             <CalendarDays size={18} />
-            <span>Preliminary Round 16 June</span>
+            <span>Selection round 7 November 2026</span>
           </div>
 
 
