@@ -199,21 +199,21 @@ export default function CodeMindClash() {
          
 
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-blue-400 flex items-center gap-3">
-            <Terminal className="w-8 h-8" /> Preliminary Round Overview
+            <Terminal className="w-8 h-8" /> Selection Round Overview
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             <div className="p-5 rounded-2xl bg-gray-950/50 border border-gray-800/80">
               <Calendar className="w-6 h-6 text-purple-400 mb-3" />
               <div className="text-sm text-gray-500">MCQ Event Date</div>
-              <div className="text-lg font-bold text-gray-200">16 June 2026</div>
-              <div className="text-xs text-gray-400">Tuesday</div>
+              <div className="text-lg font-bold text-gray-200">6 November 2026</div>
+              <div className="text-xs text-gray-400">Friday</div>
             </div>
            <div className="p-5 rounded-2xl bg-gray-950/50 border border-gray-800/80">
               <Calendar className="w-6 h-6 text-purple-400 mb-3" />
               <div className="text-sm text-gray-500">Contest Event Date</div>
-              <div className="text-lg font-bold text-gray-200">18 June 2026</div>
-              <div className="text-xs text-gray-400">Tuesday</div>
+              <div className="text-lg font-bold text-gray-200">7 November 2026</div>
+              <div className="text-xs text-gray-400">Saturday</div>
             </div>
             <div className="p-5 rounded-2xl bg-gray-950/50 border border-gray-800/80">
               <Clock className="w-6 h-6 text-blue-400 mb-3" />
@@ -224,8 +224,8 @@ export default function CodeMindClash() {
 
             <div className="p-5 rounded-2xl bg-gray-950/50 border border-gray-800/80">
               <CheckCircle2 className="w-6 h-6 text-emerald-400 mb-3" />
-              <div className="text-sm text-gray-500">Registration Opens</div>
-              <div className="text-lg font-bold text-gray-200">Coming Soon</div>
+              <div className="text-sm text-gray-500">Registration Opening</div>
+              <div className="text-lg font-bold text-gray-200">31 October 2026</div>
               <div className="text-xs text-emerald-400">Stay tuned!</div>
             </div>
 
@@ -240,26 +240,17 @@ export default function CodeMindClash() {
           {/* ROADMAP TIMELINE */}
           <div className="border-t border-gray-800 pt-10">
             <h3 className="text-xl font-semibold mb-6 text-gray-400">Event Roadmap</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-              
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
               <div className="relative pl-6 border-l-2 border-purple-500/50">
                 <div className="absolute w-4 h-4 bg-purple-500 rounded-full -left-[9px] top-1.5 shadow-[0_0_10px_#a855f7]" />
-                <h4 className="font-bold text-white text-lg">Preliminary Round</h4>
-                <p className="text-sm text-gray-400 mt-1">June 2026. Online assessment phase containing coding & conceptual questions.</p>
+                <h4 className="font-bold text-white text-lg">Selection Round</h4>
+                <p className="text-sm text-gray-400 mt-1">প্রথম রাউন্ডে প্রতিযোগীদের programming ও problem-solving দক্ষতা যাচাই করে Grand Final-এর জন্য বাছাই করা হবে।</p>
               </div>
-
-              <div className="relative pl-6 border-l-2 border-blue-500/30">
-                <div className="absolute w-4 h-4 bg-blue-500/50 rounded-full -left-[9px] top-1.5" />
-                <h4 className="font-bold text-gray-400 text-lg">National Round</h4>
-                <p className="text-sm text-gray-500 mt-1">Coming up next in October. Shortlisted candidates fight for the main stage.</p>
-              </div>
-
               <div className="relative pl-6 border-l-2 border-amber-500/30">
-                <div className="absolute w-4 h-4 bg-amber-500/50 rounded-full -left-[9px] top-1.5" />
-                <h4 className="font-bold text-gray-400 text-lg">Grand Finale</h4>
-                <p className="text-sm text-gray-500 mt-1">December. The ultimate physical/on-site battlefield for championship.</p>
+                <div className="absolute w-4 h-4 bg-amber-500 rounded-full -left-[9px] top-1.5 shadow-[0_0_10px_#f59e0b]" />
+                <h4 className="font-bold text-white text-lg">Grand Final</h4>
+                <p className="text-sm text-gray-400 mt-1">Selection Round থেকে নির্বাচিত প্রতিযোগীরা চূড়ান্ত প্রতিযোগিতায় অংশ নিয়ে CMCB Champion হওয়ার জন্য লড়বে।</p>
               </div>
-
             </div>
           </div>
         </motion.section>
@@ -366,24 +357,14 @@ export default function CodeMindClash() {
             <p className="text-sm text-gray-400">Hard work deserves ultimate recognition. Push your limits.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <motion.div variants={fadeInUp} className="p-6 rounded-2xl bg-gradient-to-b from-gray-900 via-gray-900/40 to-transparent border border-gray-800 text-center">
               <div className="w-12 h-12 rounded-xl bg-gray-950 flex items-center justify-center mx-auto mb-4 border border-gray-800">
                 <Users className="w-6 h-6 text-blue-400" />
               </div>
-              <h4 className="font-bold text-white mb-2">Preliminary Round</h4>
+              <h4 className="font-bold text-white mb-2">Selection Round</h4>
               <p className="text-xs text-gray-400 leading-relaxed">
                প্রিলিমিনারি রাউন্ডে সরাসরি কোনো পার্কস না থাকলেও এটি অংশগ্রহণকারীদের দক্ষতা উন্নয়ন, বাস্তব অভিজ্ঞতা অর্জন এবং সমস্যা সমাধানের সক্ষমতা বৃদ্ধিতে গুরুত্বপূর্ণ ভূমিকা রাখবে। পরবর্তী রাউন্ডের বিস্তারিত তথ্য অংশগ্রহণকারীদের পারফরম্যান্স ট্র্যাকিং অনুযায়ী ধাপে ধাপে আনলক করা হবে।
-              </p>
-            </motion.div>
-
-            <motion.div variants={fadeInUp} className="p-6 rounded-2xl bg-gradient-to-b from-gray-900 via-gray-900/40 to-transparent border border-gray-800 text-center">
-              <div className="w-12 h-12 rounded-xl bg-gray-950 flex items-center justify-center mx-auto mb-4 border border-gray-800">
-                <Award className="w-6 h-6 text-purple-400" />
-              </div>
-              <h4 className="font-bold text-white mb-2">National Round Perks</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                National Round-e achieve korbe <strong>choto choto special items</strong>, complementary rewards ebong performance-based recognitions.
               </p>
             </motion.div>
 
@@ -393,7 +374,7 @@ export default function CodeMindClash() {
                 <div className="w-12 h-12 rounded-xl bg-amber-950/30 flex items-center justify-center mx-auto mb-4 border border-amber-500/30">
                   <Trophy className="w-6 h-6 text-amber-400" />
                 </div>
-                <h4 className="font-bold text-amber-400 mb-2">Grand Finale Rewards</h4>
+                <h4 className="font-bold text-amber-400 mb-2">Grand Final Rewards</h4>
                 <p className="text-xs text-gray-400 leading-relaxed">
                   Grand Final-er <strong>Top 5 winners</strong>-der jonno thakbe exclusive main heavy rewards! Grand finale reach kora prottek performance-er jonno guaranteed <strong>Bishesh Shomman (Special Honours) & mini rewards</strong> thakbe.
                 </p>
