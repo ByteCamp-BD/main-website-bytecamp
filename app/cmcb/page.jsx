@@ -419,8 +419,7 @@ export default function CodeMindClash() {
               <h3 className="text-2xl font-bold text-white mb-2">Registration Not Started</h3>
               <p className="text-gray-400 text-sm leading-relaxed mb-6">
                CodeMind Clash with ByteCamp 2026-এর অফিসিয়াল রেজিস্ট্রেশন এখনো শুরু হয়নি।
-  রেজিস্ট্রেশন চালু হলে আমাদের কমিউনিটি ও অফিসিয়াল প্ল্যাটফর্মে জানিয়ে দেওয়া হবে।
-  সর্বশেষ আপডেটের জন্য আমাদের সাথে যুক্ত থাকুন।
+  রেজিস্ট্রেশন শুরু হবে ৩১ অক্টোবর ২০২৬ রেজিস্ট্রেশন  শুরু হওয়া পর্যন্ত আমাদের সাথে থাকুন ।
               </p>
 
               <button
