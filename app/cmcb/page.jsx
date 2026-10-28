@@ -217,9 +217,9 @@ export default function CodeMindClash() {
             </div>
             <div className="p-5 rounded-2xl bg-gray-950/50 border border-gray-800/80">
               <Clock className="w-6 h-6 text-blue-400 mb-3" />
-              <div className="text-sm text-gray-500">Contest & Mcq Duration</div>
-              <div className="text-lg font-bold text-gray-200">3 Hours</div>
-              <div className="text-xs text-gray-400">8:00 PM - 11:00 PM</div>
+              <div className="text-sm text-gray-500">Contest Duration</div>
+              <div className="text-lg font-bold text-gray-200">3.5 Hours</div>
+              <div className="text-xs text-gray-400">9:00 PM - 11:30 PM</div>
             </div>
 
             <div className="p-5 rounded-2xl bg-gray-950/50 border border-gray-800/80">
