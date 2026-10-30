@@ -172,17 +172,17 @@ export default function CodeMindClash() {
         </motion.p>
 
         {/* Top Floating Register Button */}
-        <motion.button
-          whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(168, 85, 247, 0.5)" }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => setShowModal(true)}
-          className="relative group px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold rounded-xl text-lg shadow-xl transition-all duration-300 border border-purple-400/20"
-        >
-          <span className="relative z-10 flex items-center gap-2">
-            Register Now <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </span>
-          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        </motion.button>
+       <motion.button
+  whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(168, 85, 247, 0.5)" }}
+  whileTap={{ scale: 0.95 }}
+  onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLScGfpfGJ68ldDxX0mIUeOxfvFIQPzAzPquCSFI9AxQv9rLNeg/viewform", "_blank")}
+  className="relative group px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold rounded-xl text-lg shadow-xl transition-all duration-300 border border-purple-400/20"
+>
+  <span className="relative z-10 flex items-center gap-2">
+    Register Now <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+  </span>
+  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+</motion.button>
       </div>
 
       {/* MAIN CONTENT WRAPPER */}
